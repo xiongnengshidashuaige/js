@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				border: 1px solid black;
+				width: 100px;
+				height: 100px;
+			}
+			#box.nav{
+				height: 300px;
+				width: 300px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="" name="" id="in1" value="" /><br />
+		<input type="" name="" id="in2" value="" />
+		<button id="an">确认</button>
+		<div id="box">
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oBox=document.getElementById('box')
+		var oAn=document.getElementById('an')
+//		var oIn1=document.getElementById('in1')
+//		var oIn2=document.getElementById('in2')
+		oAn.onclick=function(){
+			oBox.className='nav';
+//			oBox.style[oIn1.value]=oIn2.value;
+		}
+	</script>
+</html>

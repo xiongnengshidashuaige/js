@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		#box{
+			border: 1px solid black;
+			width: 300px;
+			height: 400px;
+			overflow: scroll;
+			word-break: break-all;
+		}
+		p{
+			display: inline-block;
+			border-radius:5px ;
+		}
+		.boy{
+			background: cornflowerblue;
+		}
+		.girl{
+				background: palevioletred;		
+				float: right;	
+			}
+			div{
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+		</div>
+		<input type="" name="" id="ty" value="" />
+		<button id="xm">小明</button><br/>
+		<input type="" name="" id="pe" value="" />
+		<button id="xh">小红</button><br/>
+		
+		<script type="text/javascript">
+			var	oTy=document.getElementById('ty')
+			var oXm=document.getElementById('xm')
+			var oPe=document.getElementById('pe')
+			var oXh=document.getElementById('xh')
+			var oBox=document.getElementById('box')
+			oXm.onclick=function(){
+				oBox.innerHTML=oBox.innerHTML+'<div><p class="boy">'+ty.value+'</p></div>'
+			}
+			oXh.onclick=function(){
+				oBox.innerHTML=oBox.innerHTML+'<div><p class="girl">'+pe.value+'</p></div>'
+			}
+		</script>
+	</body>
+</html>

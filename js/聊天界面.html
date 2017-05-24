@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/yangshi.css"/>
+		<style type="text/css">
+		body{
+			background: #d0ddfd;
+		}
+			#box{
+				width: 565px;
+				height: 800px;
+				background: #f2f9ff;
+				margin: auto;
+				margin-top: 30px;
+				overflow: hidden;
+				border-top-left-radius: 8px;
+				border-top-right-radius: 8px;
+				overflow: scroll;
+			}
+			ul li{
+				color:#4766b6;
+				font-size: 20px;
+				display: inline-block;
+				margin-top: 40px;
+			}
+			ul .fr{
+				float: right;
+				margin-right: 30px;
+			}
+			ul .center{
+				margin-left: 210px;
+			}
+			ul{
+				overflow: hidden;
+				width: 565px;
+				height: 80px;
+			}
+			ul .fl{
+				margin-left: 30px;
+			}
+			#input{
+				height: 75px;
+				width: 375px;
+				border: 0;
+				cursor:default;
+			    resize: none;
+			    /*margin-left: 3px;*/
+			}
+			#fs{
+				height: 80px;
+				width: 90px;
+				border: 0;
+				background: #7da0fc;
+				border-bottom-right-radius: 10px;
+				color: white;
+				font-size: 20px;
+				text-align: center;
+				line-height: 77px;
+				cursor: pointer;
+				float: right;
+			}
+			#fs:hover{
+				background: lightskyblue;
+			}
+			#tx{
+				height: 80px;
+				width: 90px;
+				border: 0;
+				background:white;
+				border-bottom-left-radius: 10px;
+				cursor: pointer;
+				display: inline-block;
+				float: left;
+				margin-right: 2px;
+			}
+			#dun{
+				/*position:absolute;*/
+				width:565px;
+				height: 80px;
+				bottom: 0;
+				/*border: 1px solid black;*/
+				margin: auto;
+			}
+			.blu{
+				background: cadetblue;
+				display:inline-block;
+				word-break: break-all;
+				margin: 10px;
+				line-height: 30px;
+				border-radius: 8px;
+			}
+			.red{
+				display:inline-block;
+				word-break: break-all;
+				margin: 10px;
+				line-height: 30px;
+				border-radius: 8px;
+				float: right;
+				background: orangered;
+				clear:both;
+			}
+			.da{
+				width: 50px;
+
+				float: left;
+			}
+			.xi{
+				width: 50px;
+				float: right;
+			}
+			#na{
+				border: 1px solid black;
+				overflow: hidden;
+			}
+			#va{
+				border: 1px solid black;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li class="fl"><i class="iconfont">&#xe603;</i></li>
+				<li class="center">duncan</li>
+				<li class="fr">. . .</li>
+			</ul>
+		</div>
+		
+		<div id="dun">
+				<div id="tx">
+				<img id="nan" src="../img/nan.png"/>
+				</div>
+			<textarea name="" id="input" rows="" cols=""></textarea>
+			<h2 id="fs">发送</h2>
+		</div>
+			
+		
+	</body>
+	<script type="text/javascript">
+		var oTx=document.getElementById('tx');
+		var oNan=document.getElementById('nan');
+		var oFs=document.getElementById('fs')
+		var oInput=document.getElementById('input')
+		var oBox=document.getElementById('box')
+		var img=1;
+		oNan.onclick=function(){
+//			alert(1)
+			if(img==1){
+				oNan.src='../img/nv.png';
+				img=0;
+			}else{
+				oNan.src='../img/nan.png';
+				img=1;
+			}
+		}
+		oFs.onclick=function(){
+			if(img == 1){
+//			<textarea name="" id="input" rows="" cols=""></textarea>
+				oBox.innerHTML=oBox.innerHTML+'<div id="na"><img class="da" src="../img/nan.png"><p class="blu">'+oInput.value+'</p></div>';
+			}else{
+				oBox.innerHTML=oBox.innerHTML+'<div id="va"><p class="red">'+oInput.value+'</p><img class="xi" src="../img/nv.png"></div>';
+			}
+		}
+	</script>
+</html>

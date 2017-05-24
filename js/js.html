@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/yangshi.css" />
+		<style type="text/css">
+			h2 {
+				float: left;
+				margin: 10px;
+			}
+			
+			#dj {
+				background: red;
+				color: white;
+				line-height: 20px;
+				margin: 10px;
+				cursor:pointer
+				
+			}
+			
+			#box {
+				border: 1px solid black;
+				height: 100px;
+				width: 100px;
+				margin: 10px;
+			}
+			
+			#back {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.5);
+				display: none;
+			}
+			
+			#sm {
+				border: 8px solid gainsboro;
+				width: 400px;
+				height: 250px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				background: white;
+				margin-left: -208px;
+				margin-top: -133px;
+			}
+			
+			#red {
+				color: white;
+				background: red;
+			}
+			
+			#yell {
+				color: black;
+				background: yellow;
+			}
+			
+			#blue {
+				color: white;
+				background: cornflowerblue;
+			}
+			
+			#sm button {
+				height: 30px;
+				width: 40px;
+				margin: 10px;
+				padding: 0;
+				cursor:pointer
+				
+			}
+			
+			#sm button:hover {
+				background: burlywood;
+			}
+			
+			#sp {
+				position: absolute;
+				left: 30%;
+				bottom: 20px;
+				background: yellowgreen;
+				
+			}
+			
+			#spd {
+				position: absolute;
+				left: 50%;
+				bottom: 20px;
+				background: yellowgreen;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="back">
+			<div id="sm">
+				<h3>请选择背景色:
+					<button id="red">红</button>
+					<button id="yell">黄</button>
+					<button id="blue">蓝</button>
+				</h3>
+				<h3>请选择宽(px): 
+					<button id="two">200</button>
+					<button id="thr">300</button>
+					<button id="for">400</button>
+				</h3>
+				<h3>请选择高(px): 
+					<button id="ht">200</button>
+					<button id="hr">300</button>
+					<button id="hf">400</button>
+				</h3>
+				<button id="sp">恢复</button>
+				<button id="spd">确定</button>
+
+			</div>
+		</div>
+		<h2>请为下面的DIV设置样式:</h2>
+		<button id="dj">点击设置</button>
+		<div id="box">
+
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ovo = document.getElementById('dj')
+		var oDoc = document.getElementById('back')
+		var ored = document.getElementById('red')
+		var oyell = document.getElementById('yell')
+		var oblue = document.getElementById('blue')
+		var obox = document.getElementById('box')
+		var otwo = document.getElementById('two')
+		var othr = document.getElementById('thr')
+		var ofor = document.getElementById('for')
+		var oht = document.getElementById('ht')
+		var ohr = document.getElementById('hr')
+		var ohf = document.getElementById('hf')
+		var osp = document.getElementById('sp')
+		var ospd = document.getElementById('spd')
+		var oback = document.getElementById('back')
+
+		ovo.onclick = function() {
+			oDoc.style.display = 'block'
+		}
+		ored.onclick = function() {
+			obox.style.background = 'red'
+		}
+		oyell.onclick = function() {
+			obox.style.background = 'yellow'
+		}
+		oblue.onclick = function() {
+			obox.style.background = 'cornflowerblue'
+		}
+		otwo.onclick = function() {
+			obox.style.width = '200px'
+		}
+		othr.onclick = function() {
+			obox.style.width = '300px'
+		}
+		ofor.onclick = function() {
+			obox.style.width = '400px'
+		}
+		oht.onclick = function() {
+			obox.style.height = '200px'
+		}
+		ohr.onclick = function() {
+			obox.style.height = '300px'
+		}
+		ohf.onclick = function() {
+			obox.style.height = '400px'
+		}
+		osp.onclick = function() {
+			obox.style.background = 'none'
+			obox.style.width = '100px'
+			obox.style.height = '100px'
+		}
+		ospd.onclick = function() {
+			oback.style.display = 'none'
+		}
+	</script>
+
+</html>
