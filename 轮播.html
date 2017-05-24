@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 200px;
+				height: 200px;
+				position: relative;
+			}
+			
+			#box img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#box h3 {
+				position: absolute;
+				bottom: 0;
+				margin: 0;
+				color: white;
+				background: rgba(0, 0, 0, 0.5);
+				width: 100%;
+			}
+			
+			#box p {
+				display: inline-block;
+				position: absolute;
+				background: rgba(0, 0, 0, 0.5);
+				border-radius: 50%;
+				height: 40px;
+				width: 40px;
+				color: white;
+				text-align: center;
+				line-height: 40px;
+				top: 50%;
+				margin-top: -20px;
+				cursor: pointer;
+			}
+			
+			#fr {
+				right: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="order">顺序切换</button>
+		<button id="loop">循环切换</button>
+		<h4 id="order1"></h4>
+		<div id="box">
+			<img id="img1" src="img/u0.png" />
+			<p id="fl">《</p>
+			<p id="fr">》</p>
+			<h3 id="text">第一张图片</h3>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var order = document.getElementById('order');
+		var oLoop = document.getElementById('loop');
+		var oImg1 = document.getElementById('img1');
+		var oFl = document.getElementById('fl');
+		var oFr = document.getElementById('fr');
+		var oText = document.getElementById('text');
+		var order1 = document.getElementById('order1');
+
+		var arrImg = ['img/u0.png', 'img/u1.png', 'img/u3.png', 'img/u4.png'];
+		var arrText = ['第一张图片', '第二张图片', '第三张图片', '第四张图片'];
+		var num = 0;
+		var mo=0;
+		
+		order.onclick = function() {
+			mo=0
+			order1.innerHTML = '顺序切换模式';}
+		
+		oLoop.onclick = function() {
+			mo=1
+			order1.innerHTML = '循环切换模式';}
+		oFr.onclick=function(){
+			if(mo==0){
+				if(num < arrImg.length-1) {
+						num++;
+					} else {
+						alert('最后一张')
+					}
+			}else{
+				if(num < arrImg.length - 1) {
+					num = num + 1;
+				} else {
+					num = 0
+				}
+			}
+					oImg1.src = arrImg[num];
+					oText.innerHTML = arrText[num];
+		}
+		
+		oFl.onclick=function(){
+			if(mo==0){
+				if(num > 0) {
+						num--;
+					} else {
+						alert('第一张')
+					}
+			}else{
+				if(num>0) {
+					num = num -1;
+				} else {
+					num = 3
+				}
+			}
+					oImg1.src = arrImg[num];
+					oText.innerHTML = arrText[num];
+		}
+//		order.onclick = function() {
+//			order1.innerHTML = '顺序切换模式';
+//				oFr.onclick = function() {
+//					if(num < arrImg.length-1) {
+//						num++;
+//					} else {
+//						alert('最后一张')
+//					}
+//					oImg1.src = arrImg[num];
+//					oText.innerHTML = arrText[num];
+//				}
+//				oFl.onclick = function() {
+//					if(num > 0) {
+//						num--;
+//					} else {
+//						alert('第一张')
+//					}
+//					oImg1.src = arrImg[num];
+//					oText.innerHTML = arrText[num];
+//				}
+//			}
+//
+//		oLoop.onclick = function() {
+//			order1.innerHTML = '循环切换模式';
+//
+//			oFr.onclick = function() {
+//				if(num < arrImg.length - 1) {
+//					num = num + 1;
+//				} else {
+//					num = 0
+//				}
+//				oImg1.src = arrImg[num];
+//					oText.innerHTML = arrText[num];
+//				
+//			}
+//			oFl.onclick = function() {
+//				if(num>0) {
+//					num = num -1;
+//				} else {
+//					num = 3
+//				}
+//				oImg1.src = arrImg[num];
+//					oText.innerHTML = arrText[num];
+//				
+//			}
+//		}
+	</script>
+
+</html>

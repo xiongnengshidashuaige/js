@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img id="img" src="img/nv.png"/>
+	</body>
+	<script type="text/javascript">
+		var oImg=document.getElementById('img');
+		var arr=['img/nv.png','img/img.png','img/b6872b9b0b3c4e682a9cd0b4f0629513.png'];
+		var count=0
+		oImg.onclick=function(){
+			if(count<arr.length-1){
+				count=count+1;
+			}else{
+				count=0
+			}
+			oImg.src=arr[count];
+		}
+	</script>
+</html>
