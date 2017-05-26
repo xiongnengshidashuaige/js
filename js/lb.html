@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				position: relative;
+			}
+			
+			img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			p {
+				position: absolute;
+				margin: 0;
+				bottom: 0;
+				color: white;
+				background: rgba(0, 0, 0, 0.5);
+				width: 100%;
+				line-height: 30px;
+			}
+			
+			span {
+				position: absolute;
+				display: inline-block;
+				border-radius: 50%;
+				background: rgba(0, 0, 0, 0.5);
+				width: 40px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				color: white;
+				top: 50%;
+				margin-top: -20px;
+				cursor: pointer;
+			}
+			
+			#fr {
+				right: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="order">顺序切换</button>
+		<button id="loop">轮播切换</button>
+		<h4 id="text1"></h4>
+		<div>
+			<img id="img1" src="../img/u0.png" />
+			<p id="text">第一张</p>
+			<span id="fl">《</span>
+			<span id="fr">》</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var order = document.getElementById('order');
+		var oLoop = document.getElementById('loop');
+		var oImg = document.getElementById('img1');
+		var oText = document.getElementById('text');
+		var oFl = document.getElementById('fl');
+		var oFr = document.getElementById('fr')
+		var oText1 = document.getElementById('text1')
+
+		var arrImg= ['../img/u0.png', '../img/u1.png', '../img/u3.png', '../img/u4.png'];
+		var arrText = ['第一张图片', '第二张图片', '第三张图片', '第四张图片'];
+		var num = 0;
+		var cont = 0;
+
+		order.onclick = function() {
+			cont = 0;
+			oText1.innerHTML = '顺序切换模式';
+		}
+		oLoop.onclick = function() {
+			cont = 1;
+			oText1.innerHTML = '循环切换模式';
+		}
+		oFr.onclick=function(){
+			if(num<arrImg.length-1){
+				num++
+			}else{
+				alert('最后')
+			}
+			oImg.src=arrImg[num];
+			oText.innerHTML=arrText[num]
+		}
+	</script>
+
+</html>

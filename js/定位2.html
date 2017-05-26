@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var aDiv=document.getElementsByTagName('div');
+		var str=''
+		for(var i=0;i<11;i++){
+			str+='<div></div>';
+		}
+		document.body.innerHTML=str;
+		var leng=aDiv.length;
+		for(var i=0;i<leng;i++){
+			aDiv[i].style.left=i*50+'px';
+			if(i<=(leng-1)/2){
+				aDiv[i].style.top=i*50+'px';
+			}else{
+				aDiv[i].style.top=(leng-1-i)*50+'px';
+				
+			}
+		}
+	</script>
+</html>

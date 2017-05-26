@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				position: relative;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+			}
+			ul{
+				position: absolute;
+				bottom: 0;
+				margin: 0;
+			}
+			li{
+				float: left;
+				list-style: none;
+				width: 20px;
+				height: 20px;
+				background: green;
+				border-radius: 50%;
+				margin: 0 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+		<img id="img1" src="img/u0.png"/>
+		<ul id="list">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		</div>
+		<script type="text/javascript">
+			var oList=document.getElementById('lest');
+			var oImg=document.getElementById('img1');
+			var aLi=document.getElementsByTagName('li');
+			
+			var arrImg = ['img/u0.png', 'img/u1.png', 'img/u3.png', 'img/u4.png'];
+			var len=aLi.length;
+			for(var i=0; i<len;i++){
+				aLi[i].num=i;
+				aLi[i].onclick=function(){
+					oImg.src=arrImg[this.num];
+					 for(var i=0; i<len; i++){
+					aLi[i].style.background='red';
+					 }
+					 this.style.background='black';
+				}
+			}
+		</script>
+	</body>
+</html>

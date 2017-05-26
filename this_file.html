@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			
+		</div>
+		<div >
+			
+		</div>
+		<div >
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var aDiv=document.getElementsByTagName('div');
+		var len=aDiv.length;
+		for(var i=0;i<len;i++){
+			aDiv[i].num=1;
+			aDiv[i].onclick=function(){
+				if(this.num==1){
+					this.style.background='black';
+					this.num=0;
+				}else{
+					this.style.background='red';
+					this.num=1;
+				}
+			}
+		}
+	</script>
+</html>
