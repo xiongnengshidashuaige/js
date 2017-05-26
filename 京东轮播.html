@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				position: relative;
+				width: 790px;
+				height: 340px;
+				margin: auto;
+				border: 1px solid black;
+			}
+			#case{
+				position: absolute;
+				background:rgba(0,0,0,0.5);
+				border-radius: 10px;
+				width: 200px;
+				padding: 0;
+				left: 50%;
+				bottom: 2px;
+				margin-left: -100px;
+			}
+			#case li{
+				list-style: none;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background: white;
+				text-align: center;
+				display: inline-block;
+				line-height: 15px;
+				margin: 0 10px;
+			}
+			#box p{
+				position: absolute;
+				color: white;
+				top: 50%;
+				font-size: 30px;
+				margin: 0;
+				margin-top: -30px;
+				background: gray;
+				width: 30px;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				cursor: pointer;
+			}
+			#box p:hover{
+				background: rgba(0,0,0,0.8);
+			}
+			#fr{
+				right: 0;
+			}
+			#box1{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img id="img1" src="img/1.png"/>
+			<ul id="case">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div id="box1">
+			<p id="fl"><</p>
+			<p id="fr">></p>
+			</div>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+	var oBox1=document.getElementById('box1')
+	var oBox=document.getElementById('box')
+	var oImg=document.getElementById('img1');
+	var oCase=document.getElementById('case');
+	var oFl=document.getElementById('fl');
+	var oFr=document.getElementById('fr');
+	var aLi=document.getElementsByTagName('li');
+	var arrImg1=['img/1.png','img/2.png','img/3.png','img/4.png','img/5.png'];
+	oBox.onmouseover=function(){
+		oBox1.style.display='block';
+	}
+	oBox.onmouseout=function(){
+		oBox1.style.display='none';
+	}
+	var len=aLi.length;
+	for(var i=0;i<len;i++){
+		aLi[i].num=i;
+		aLi[i].onmouseover=function(){
+			oImg.src=arrImg1[this.num];
+					 for(var i=0; i<len; i++){
+					aLi[i].style.background='white';
+					 }
+					 this.style.background='red';
+				}
+	}
+	var num=0;
+	oFl.onclick=function(){
+		if(num>0){
+			num--;
+		}else{
+			num=arrImg1.length-1
+		}
+				oImg.src = arrImg1[num];
+		
+	}
+	oFr.onclick=function(){
+		if(num<arrImg1.length-1){
+			num++;
+		}else{
+			num=0
+		}
+				oImg.src = arrImg1[num];
+		
+	}
+	</script>
+</html>
