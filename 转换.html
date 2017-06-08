@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<button>-</button>
+				<input  type="text" name="" id="" value="" />
+				<button>+</button>
+			</li>
+			<li>
+				<button>-</button>
+				<input  type="text" name="" id="" value="" />
+				<button>+</button>
+			</li>
+			<li>
+				<button>-</button>
+				<input  type="text" name="" id="" value="" />
+				<button>+</button>
+			</li>
+			<li>
+				<button>-</button>
+				<input  type="text" name="" id="" value="" />
+				<button>+</button>
+			</li>
+		</ul>
+		
+	</body>
+	<script type="text/javascript">
+		var oList=document.getElementById('list');
+		var aLi=oList.getElementsByTagName('li');
+		for(var i=0;i<aLi.length;i++){
+			fn(aLi[i])
+		}
+		function fn(obj){
+		var oMin=obj.getElementsByTagName('button')[0];
+		var oPlu=obj.getElementsByTagName('button')[1];
+		var oInput=obj.getElementsByTagName('input')[0];
+		var num=0;
+		oInput.value=num;
+		oMin.onclick=function(){
+			num--;
+			oInput.value=num;
+			}
+		oPlu.onclick=function(){
+			num++;
+			oInput.value=num;
+			}
+		}
+
+	</script>
+</html>

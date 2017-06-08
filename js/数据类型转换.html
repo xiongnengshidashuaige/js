@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 10px;
+				/*border: 1px solid red;*/
+				color: ;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="in1" value="" />
+		<input type="text" name="" id="in2" value="" />
+		<button id="but">等于</button>
+	</body>
+	<script type="text/javascript">
+		var oIn1=document.getElementById('in1');
+		var oIn2=document.getElementById('in2');
+		var oBut=document.getElementById('but')
+		oBut.onclick=function(){
+			alert(Number(oIn1.value)%Number(oIn2.value))
+		}
+		var arrColor=['red','black','yellow','green','blue','gray'];
+		for(var i=0;i<100;i++){
+			document.body.innerHTML+='<div style="background:'+arrColor[i%6]+';"></div>';
+		}
+	</script>
+</html>

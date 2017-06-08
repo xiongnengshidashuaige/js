@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="back">后退</button>
+		<button id="prev">前进</button>
+		<button id="top">向上</button>
+		<button id="bottom">向下</button>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript" src="js1/new_file.js" ></script>
+	<script type="text/javascript">
+//		解决定时器多开之后对动画效果的影响
+//		提取出动画函数中需要根据不同的动画需求进行改动的参数
+//		(1):被移动的对象obj
+//		(2):通过什么属性控制元素移动(marginLeft,top)
+//		(3):元素移动的方向问题  + -
+//		(4):目标点
+//		 $('box')  10   100  >
+//		 $('box')  -10   0   <
+		var timer=null;
+		$('prev').onclick=function(){
+			clearInterval(timer);  //为了避免定时器多开导致元素动画效果受到影响
+			timer = setInterval(function(){
+				Go($('box'),'marginLeft',10,95);
+			},40)
+		}
+		
+		$('back').onclick=function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				Go($('box'),'marginLeft',-10,0);
+			},40)
+		}
+		
+		$('top').onclick=function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				Go($('box'),'marginTop',-10,0);
+			},40)
+		}
+		$('bottom').onclick=function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				Go($('box'),'marginTop',10,200);
+			},40)
+		}
+//		obj:要移动元素的形参
+//		direct:要移动的方向形参(为正值往前走,为负值往后走)
+//		target:想让元素停止在哪个目标点的形参
+		function Go(obj,attr,direct,target){
+			var Distance=parseInt(getStyle(obj,attr))+direct;
+			if( Distance>=target && direct>0 || Distance<target && direct<0){ //与运算的优先级大于或运算
+				Distance=target;
+				clearInterval(timer);
+			}
+//				1+2*3
+			obj.style[attr]=Distance+'px';
+		}
+	</script>
+</html>

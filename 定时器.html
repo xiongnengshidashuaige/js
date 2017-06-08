@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="but">确认发送</button>
+	</body>
+	<!--<script type="text/javascript" src="js1/new_file.js">-->
+		
+	<!--</script>-->
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+				}
+		$('but').onclick=function(){
+			var num=5;
+			var time=setInterval(function(){
+		    $('but').innerHTML=num+'s后新获取';
+//		    console.log(num)
+				if(num>0){
+					num--;
+				}else{
+					$('but').innerHTML='确认发送'
+					clearInterval(time)
+				}
+			},1000)
+		}
+	</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			li{
+				height: 40px;
+				width: 40px;
+				/*border: 1px solid red;*/
+				float: left;
+				background: url(img/star1.png) no-repeat center center;
+			}
+			.bg-gray{
+				background: url(img/star2.png) no-repeat center center;
+			}
+			.bg-yellow{
+				background: url(img/star3.png) no-repeat center center;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var aLi=document.getElementsByTagName('li');
+		var Len=aLi.length;
+		var num=-1;  //为了存储被点击li的序号
+		
+		for(var i=0;i<Len;i++){
+			aLi[i].index=i;
+			aLi[i].onmouseover=function(){
+				for(var i=0;i<Len;i++){
+					aLi[i].className='';//为了清除所有li的class名称
+				}
+				
+				for(var i=0;i<Len;i++){
+					this.index<2 ? aLi[i].className='bg-gray' : aLi[i].className='bg-yellow';
+					if(i==this.index){
+						break;
+					}
+				}
+				
+			};
+			
+			aLi[i].onmouseout=function(){
+				for(var i=0;i<Len;i++){
+					aLi[i].className='';//为了清除所有li的class名称
+				}
+				
+				for(var i=0;i<Len;i++){
+					if(i==num+1){
+						break;
+					}
+					num<2 ? aLi[i].className='bg-gray' : aLi[i].className='bg-yellow';
+
+				}
+			};
+			
+			aLi[i].onclick=function(){
+				num=this.index;
+			}
+		}
+	</script>
+</html>

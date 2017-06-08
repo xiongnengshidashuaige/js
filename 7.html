@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/yangshi.css"/>
+		<style type="text/css">
+			li{
+				width: 35px;
+				height: 35px;
+				float: left;
+				background: url(img/star1.png) no-repeat;
+			}
+			.gray{
+				background: url(img/star2.png)no-repeat;
+			}
+			.yellow{
+				background: url(img/star3.png)no-repeat;
+			}
+			span{
+				float: left;
+				line-height: 30px;
+				margin-right: 10px;
+			}
+			i{
+				line-height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+			<span>总体评价</span>
+			<ul id="list">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<i></i>
+	</body>
+	<script type="text/javascript">
+	var aLi=document.getElementsByTagName('li');
+	var len=aLi.length;
+	var cont=-1;
+	for(var i=0;i<len;i++){
+		aLi[i].num=i;
+		aLi[i].onmouseover=function(){
+			for	(var i=0;i<len;i++){
+				aLi[i].className='';
+			}
+			for(var i=0;i<len;i++){
+				this.num<2 ? aLi[i].className='gray':aLi[i].className='yellow';
+				if(i==this.num){
+				break;
+				}
+			}
+		}
+		aLi[i].onmouseout=function(){
+			for(var i=0;i<len;i++){
+				aLi[i].className='';
+			}
+			for(var i=0;i<len;i++){
+				if(i==cont+1){
+					break
+				}
+				this.num<2 ? aLi[i].className='gray':aLi[i].className='yellow'
+			}
+		}
+			aLi[i].onclick=function(){
+				cont=this.num
+			}
+	}
+	</script>
+</html>

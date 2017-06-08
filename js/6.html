@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/yangshi.css"/>
+		<style type="text/css">
+		.list{
+			width: 800px;
+		}
+			.list li{
+				width: 100px;
+				height:120px;
+				float: left;
+				padding: 10px 10px;
+			}
+			.list img{
+				width: 100px;
+				height: 80px;
+			}
+			.list p,.list h4{
+				text-align: center;
+			}
+			.list p{
+				color:gray;
+			}
+			#move{
+				width: 200px;
+				height: 15px;
+				background: red;
+				margin: 0 10px;
+				position: relative;
+			}
+			i{
+				width: 10px;
+				height: 10px;
+				background: red;
+				position: absolute;
+				bottom: -6px;
+				transform:rotate(45deg);
+				left: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="move">
+				<i></i>
+			</div>
+			<ul class="list one">
+				<li>
+					<img src="../img/u1.png"/>
+					<h4>娱乐</h4>
+					<p>新闻类</p>
+				</li>
+				<li>
+					<img src="../img/u1.png"/>
+					<h4>娱乐</h4>
+					<p>新闻类</p>
+				</li>
+				<li>
+					<img src="../img/u1.png"/>
+					<h4>娱乐</h4>
+					<p>新闻类</p>
+				</li>
+				<li>
+					<img src="../img/u1.png"/>
+					<h4>娱乐</h4>
+					<p>新闻类</p>
+				</li>
+				<li>
+					<img src="../img/u1.png"/>
+					<h4>娱乐</h4>
+					<p>新闻类</p>
+				</li>
+				<li>
+					<img src="../img/u1.png"/>
+					<h4>娱乐</h4>
+					<p>新闻类</p>
+				</li>
+			</ul>
+			<ul class="list two">
+				<li>
+					<img src="../img/u3.png"/>
+					<h4>游戏</h4>
+					<p>游戏类</p>
+				</li>
+				<li>
+					<img src="../img/u3.png"/>
+					<h4>游戏</h4>
+					<p>游戏类</p>
+				</li>
+				<li>
+					<img src="../img/u3.png"/>
+					<h4>游戏</h4>
+					<p>游戏类</p>
+				</li>
+				<li>
+					<img src="../img/u3.png"/>
+					<h4>游戏</h4>
+					<p>游戏类</p>
+				</li>
+				<li>
+					<img src="../img/u3.png"/>
+					<h4>游戏</h4>
+					<p>游戏类</p>
+				</li>
+				<li>
+					<img src="../img/u3.png"/>
+					<h4>游戏</h4>
+					<p>游戏类</p>
+				</li>
+			</ul>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+	var list=document.getElementsByClassName('list')[0];
+	var li=list.getElementsByTagName('li');
+	var move=document.getElementById('move');
+	var  len=li.length;
+	for(var i=0;i<len;i++){
+		li[i].num=i;
+		
+	}
+	</script>
+</html>

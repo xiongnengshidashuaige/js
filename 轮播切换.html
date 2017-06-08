@@ -30,9 +30,18 @@
 		</style>
 	</head>
 	<body>
-		<div>
-		<img id="img1" src="img/u0.png"/>
-		<ul id="list">
+		<div id="box">
+		<img class="img1" src="img/u0.png"/>
+		<ul class="list">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		</div>
+		<div id="box1">
+		<img class="img1" src="img/u0.png"/>
+		<ul class="list">
 			<li></li>
 			<li></li>
 			<li></li>
@@ -40,21 +49,27 @@
 		</ul>
 		</div>
 		<script type="text/javascript">
-			var oList=document.getElementById('lest');
-			var oImg=document.getElementById('img1');
-			var aLi=document.getElementsByTagName('li');
-			
+			var oBox=document.getElementById('box')
+			var oBox1=document.getElementById('box1')
+			fn(oBox)
+			fn(oBox1)
+			function fn(cont){
+			var oList=cont.getElementsByClassName('lest');
+			var oImg=cont.getElementsByClassName('img1');
+			var aLi=cont.getElementsByTagName('li');
 			var arrImg = ['img/u0.png', 'img/u1.png', 'img/u3.png', 'img/u4.png'];
 			var len=aLi.length;
 			for(var i=0; i<len;i++){
 				aLi[i].num=i;
 				aLi[i].onclick=function(){
-					oImg.src=arrImg[this.num];
+					oImg[0].src=arrImg[this.num];
 					 for(var i=0; i<len; i++){
 					aLi[i].style.background='red';
 					 }
 					 aLi[this.num].style.background='black';
+					
 				}
+			}
 			}
 		</script>
 	</body>

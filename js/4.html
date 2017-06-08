@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/yangshi.css"/>
+		<style type="text/css">
+		#marp{
+			width: 760px;
+			margin: auto;
+		}
+		.fl{
+			float: left;
+		}
+		#tob li{
+			width: 150px;
+			line-height: 80px;
+			border-bottom:1px solid black ;
+			background: gainsboro;
+			text-align: center;
+			cursor: pointer;
+		}
+		.box1{
+			border: 1px solid black;
+			width: 600px;
+			height: 322px;
+			overflow: hidden;
+		}
+		.box2,.box2 img{
+			width: 100%;
+			height: 100%;
+		}
+		.box2{
+			position: relative;
+		}
+		.box2 ul{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+		.bot li{
+			line-height: 30px;
+			background: rgba(0,0,0,0.5);
+			float: left;
+			box-sizing: border-box;
+			border-left: 1px solid white;
+			color: white;
+			text-align: center;
+			cursor: pointer;
+			
+		}
+		.bot1 li{
+			width: 33.33%;
+		}
+		.bot2 li{
+			width:25%;
+		}
+		.bot3 li{
+			width:20%;
+		}
+		.bot4 li{
+			width:16.66%;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="marp">
+			<div id="box">
+				<ul id="tob" class="fl">
+					<li>菜单一</li>
+					<li>菜单二</li>
+					<li>菜单三</li>
+					<li>菜单四</li>
+				</ul>
+				<div class="box1 fl">
+					<div class="box2">
+						<img src="../img/1.png"/>
+						<ul class="bot bot1">
+							<li>图片1</li>
+							<li>图片2</li>
+							<li>图片3</li>
+						</ul>
+					</div>
+					
+					<div class="box2">
+						<img src="../img/2.png"/>
+						<ul class="bot bot2">
+							<li>图片1</li>
+							<li>图片2</li>
+							<li>图片3</li>
+							<li>图片4</li>
+							
+						</ul>
+					</div>
+					
+					<div class="box2">
+						<img src="../img/3.png"/>
+						<ul class="bot bot3">
+							<li>图片1</li>
+							<li>图片2</li>
+							<li>图片3</li>
+							<li>图片4</li>
+							<li>图片5</li>
+							
+						</ul>
+					</div>
+					
+					<div class="box2">
+						<img src="../img/4.png"/>
+						<ul class="bot bot4">
+							<li>图片1</li>
+							<li>图片2</li>
+							<li>图片3</li>
+							<li>图片4</li>
+							<li>图片5</li>
+							<li>图片6</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var tob=document.getElementById('tob');
+		var aLi=tob.getElementsByTagName('li');
+		var box2=document.getElementsByClassName('box2');
+//		var box1=document.getElementsByClassName('box1');
+		var arrimg= [
+				['../img/1.png','../img/2.png','../img/3.png'],
+				['../img/2.png','../img/3.png','../img/4.png','../img/5.png'],
+				['../img/2.png','../img/3.png','../img/4.png','../img/5.png','../img/3.png'],
+				['../img/2.png','../img/3.png','../img/4.png','../img/5.png','../img/4.png','../img/3.png']
+			 ]
+		var len=aLi.length;
+		for(i=0;i<len;i++){
+			aLi[i].num=i;
+			aLi[i].onclick=function(){
+				for(var i=0;i<len;i++){
+					box2[i].style.display='none';
+					aLi[i].style.background='gainsboro';
+				};
+				box2[this.num].style.display='block';
+				this.style.background='red'
+			}
+		}
+		for(var i=0;i<len;i++){
+			cont(i);
+		}
+		
+		function cont(n){
+			var oimg=box2[n].getElementsByTagName('img')[0];
+			var li=box2[n].getElementsByTagName('li');
+			var lilen=li.length;
+			for(var i=0;i<lilen;i++){
+				li[i].con=i;
+				li[i].onmouseover=function(){
+					oimg.src=arrimg[n][this.con]
+				}
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="back">后退</button>
+		<button id="prev">前进</button>
+		<button id="top">向上</button>
+		<button id="bottom">向下</button>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript" src="js1/new_file.js" ></script>
+	<script type="text/javascript">
+//		解决定时器多开之后对动画效果的影响
+		var timer=null;
+		$('prev').onclick=function(){
+			clearInterval(timer);  //为了避免定时器多开导致元素动画效果受到影响
+			timer = setInterval(function(){
+				var Distance=parseInt(getStyle($('box'),'marginLeft'))+10;
+//				mLeft+=10;
+//				if(Distance>=105){
+//					clearInterval(timer);  //这种方式无法让元素准确的停在想要的目标点
+//				}
+				if(Distance>=95){
+					Distance=95;
+					clearInterval(timer);
+				}
+				$('box').style.marginLeft=Distance+'px';
+				
+			},40)
+		}
+		
+		$('back').onclick=function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				var Distance=parseInt(getStyle($('box'),'marginLeft'))-10;
+				if(Distance<0){
+					Distance=0;
+					clearInterval(timer);
+				}
+				$('box').style.marginLeft=Distance+'px';
+			},40)
+		}
+		
+		$('bottom').onclick=function(){
+			clearInterval(timer);
+//					console.log(1)
+			timer=setInterval(function(){
+				var Distance=parseInt(getStyle($('box'),'marginTop'))+10;
+				if(Distance>=95){
+					Distance=95;
+					clearInterval(timer);
+				}
+				$('box').style.marginTop=Distance+'px';
+			},40)
+		}
+		$('top').onclick=function(){
+			
+		}
+	</script>
+</html>

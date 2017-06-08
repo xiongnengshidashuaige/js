@@ -15,13 +15,18 @@
 		var oIi=document.getElementById('ii');
 		var oDa=document.getElementById('da');
 		var oXi=document.getElementById('xi');
-		var num=14
+		var num=16
 		oDa.onclick=function(){
+			if(num<100){
 			num=num+5
+				
+			}
 			oIi.style.fontSize=num + 'px'
 		}
 		oXi.onclick=function(){
-			num=num-5;
+			if(num>16){
+				num=num-5
+			}
 			oIi.style.fontSize=num + 'px'
 		}
 	</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				margin-top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" style="background: red;"></div>
+	</body>
+	<script type="text/javascript" src="../js1/new_file.js">
+		
+	</script>
+	<script type="text/javascript">
+//		1,通过元素.style.background方法,只能获取到行内样式
+//		$('box').onclick=function(){
+//			alert(this.style.background);
+//		}
+//		2,getComputedStyle(元素).样式名称
+//			不兼容IE7,8
+//		$('box').onclick=function(){
+//			alert(getComputedStyle($('box')).backgroundColor);
+//		}
+		
+//		3,元素.currentStyle.样式名称
+//			不兼容标准浏览器
+//		$('box').onclick=function(){
+//			alert($('box').currentStyle.width);
+//		}
+//		4,封装获取样式的函数(兼容各大浏览器)
+		$('box').onclick=function(){
+			if($('box').currentStyle){
+				alert($('box').currentStyle.width);
+//				console.log(1);
+			}else{
+				alert(getComputedStyle($('box')).backgroundColor);
+//				console.log(2);
+			}
+		}
+//		$('box').onclick=function(){
+//			alert(getStyle($('box'),'marginTop'));
+//		}
+		
+//		5,注意事项
+//		(1)不要用复合样式去获取
+//		(2)获取到的值不要拿来做判断
+//		(3)获取样式的时候：不要随便加空格
+		//getStyle($('box'),'backgroundColor')
+//		(4)不要获取未设置过的样式(兼容性不好)
+	</script>
+</html>

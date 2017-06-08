@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="back">后退</button>
+		<button id="prev">前进</button>
+		<button id="top">向上</button>
+		<button id="bottom">向下</button>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript" src="js1/new_file.js" ></script>
+	<script type="text/javascript">
+//		解决定时器多开之后对动画效果的影响
+//		提取出动画函数中需要根据不同的动画需求进行改动的参数
+//		(1):被移动的对象obj
+//		(2):通过什么属性控制元素移动(marginLeft,top)
+//		(3):元素移动的方向问题  + -
+//		(4):目标点
+//		 $('box')  10   100  >
+//		 $('box')  -10   0   <
+		var timer=null;
+		$('prev').onclick=function(){
+			clearInterval(timer);  //为了避免定时器多开导致元素动画效果受到影响
+			timer = setInterval(function(){
+				Go($('box'),10,95);
+			},40)
+		}
+		
+		$('back').onclick=function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				Go($('box'),-10,0);
+			},40)
+		}
+//		obj:要移动元素形参
+//		direct:要移动的方向形参(为正值往前走,为负值往后走)
+//		target:想让元素停止在哪个目标点形参
+		function Go(obj,direct,target){
+			var Distance=parseInt(getStyle(obj,'marginLeft'))+direct;
+//				
+				if(Distance>=target && direct>0){  // 向前目标点判断  margin大于目标点，且移动方向direct变量为正数
+					Distance=target;
+					clearInterval(timer);
+				}
+				
+				if(Distance<target && direct<0){ // 向后目标点判断：  margin小于目标点，且移动方向direct变量为负数
+					Distance=target;
+					clearInterval(timer);
+				}
+				
+				obj.style.marginLeft=Distance+'px';
+		}
+	</script>
+</html>
