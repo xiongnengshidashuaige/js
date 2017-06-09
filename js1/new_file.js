@@ -28,3 +28,15 @@ function Go(obj,attr,direct,target,endFn){
 				
 			},40)
 		}
+
+	function Opacity(obj,state){
+			obj.changeOpacity=setInterval(function(){
+				var opa=parseFloat(getStyle(obj,'opacity'))+state;
+				if(opa<=0 || opa>=1){
+					state>0 ? opa=1 : opa=0; //判断元素是需要影藏还是显示
+	//				$('box').style.display='none';
+					clearInterval(obj.changeOpacity);
+				}
+				obj.style.opacity=opa;
+			},50)
+		}

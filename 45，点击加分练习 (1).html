@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#cont{
+				height: 40px;
+				width: 400px;
+				border: 1px solid black;
+				margin-top: 300px;
+				text-align: center;
+				line-height: 40px;
+				position: relative;
+			}
+			#cont span{
+				display: block;
+				float: left;
+				height: 100%;
+				width: 40px;
+				position: relative;
+				top: 0;
+				z-index: 1;
+			}
+			#bar{
+				height: 100%;
+				width: 100%;
+				background: cornflowerblue;
+				position: absolute;
+				top: 0;
+				left: -400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<div id="bar"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js1/new_file.js">
+		
+	</script>
+	<script type="text/javascript">
+//		一,点击cont的时候需要做什么事情?
+//		1,id为bar的元素改变left值,实现进度条效果(Go函数)
+//		2,等bar到达cont最右端的时候,bar淡出(Opacity函数)
+//		3,所有的+1span依次往上走(Go函数);
+//		4,+1的span便往上走便淡出(Opacity函数)
+		var aSpan=document.getElementsByTagName('span');
+		var num=0;
+		var timer=null;
+		$('cont').onclick=function(){
+//			1,id为bar的元素改变left值,实现进度条效果(Go函数)
+			Go($('bar'),'left',10,0,function(){
+//				2,等bar到达cont最右端的时候,bar淡出(Opacity函数)
+				Opacity($('bar'),-0.05);
+			});
+			
+			clearInterval(timer)
+			timer = setInterval(function(){
+//				3,所有的+1span依次往上走(Go函数);
+				Go(aSpan[num],'top',-10,-200);
+//				4,+1的span便往上走便淡出(Opacity函数)
+				Opacity(aSpan[num],-0.05);
+				if(num<aSpan.length-1){
+					num++;
+				}else{
+					clearInterval(timer);
+					num=0;
+//					setTimeout是为了避免span还没有走到最上面就执行归为代码
+					setTimeout(function(){
+						$('bar').style.left='-400px';
+						$('bar').style.opacity=1;
+						for(var i=0;i<aSpan.length;i++){
+							aSpan[i].style.opacity=1;
+							aSpan[i].style.top=0;
+						}
+					},2000)
+				}
+			},200);
+			
+		}
+		
+	</script>
+</html>
