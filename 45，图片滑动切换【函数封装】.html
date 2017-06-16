@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				height: 300px;
+				width: 300px;
+				border: 1px solid red;
+				position: relative;
+				margin-left: 300px;
+				overflow: hidden;
+			}
+			.cont img{
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				top: 0;
+			}
+			.cont img:nth-of-type(1){
+				left: 0;
+			}
+			.cont img:nth-of-type(2){
+				left: 300px;
+			}
+			#info{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				line-height: 40px;
+				background: rgba(0,0,0,0.5);
+				width: 100%;
+				color: #FFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<img src="img/animal1.jpeg"/>
+			<img src="img/animal2.jpg"/>
+			<div id="info">
+				图片1
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,让两张图片向左滑动一次
+		var aImg=document.getElementsByTagName('img');
+		var arrImg=[
+			['img/animal1.jpeg','图片1'],
+			['img/animal2.jpg','图片2'],
+			['img/animal3.gif','图片3'],
+			['img/animal4.jpg','图片4']
+		]
+
+//		2,通过定时器让图片自动进行左右滑动
+		
+		var control=true;  //判断执行两张图片Go动画的目标点
+		var num=2;  //为了让第一张图片的路径在第一次移动之后编程图片数组里的第三条数据
+		var imgNum=0;
+		setInterval(function(){
+			var n= num%4; //为了让n在0~3之间反复循环，实现循环去取数组里面的图片
+			control ? imgNum=0 : imgNum=1;
+			if(control){
+				Go(aImg[imgNum],'left',-10,-300,function(){
+					aImg[imgNum].style.left='300px';
+					aImg[imgNum].src=arrImg[n][0];
+				});
+//				0 ~ 1
+				Go(aImg[(imgNum+1)%2],'left',-10,0);
+			}else{
+				Go(aImg[imgNum],'left',-10,-300,function(){
+					aImg[imgNum].style.left='300px';
+					aImg[imgNum].src=arrImg[n][0];
+				});
+//				1 ~ 0
+				Go(aImg[(imgNum+1)%2],'left',-10,0);
+			}
+			
+			Go($('info'),'bottom',-2,-40,function(){  //为了控制介绍性文字的滑上滑下
+				$('info').innerHTML=arrImg[(num-1)%4][1];
+				Go($('info'),'bottom',2,0);
+				num++;
+			});
+			
+			control=!control;
+		},5000);
+		
+		function slide(a){
+			Go(aImg[a],'left',-10,-300,function(){
+				aImg[a].style.left='300px';
+				aImg[a].src=arrImg[n][0];
+			});
+			Go(aImg[(a+1)%2],'left',-10,0);
+		}
+	</script>
+</html>

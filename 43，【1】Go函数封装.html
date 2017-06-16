@@ -65,7 +65,15 @@
 			},40)
 		}
 		$('top').onclick=function(){
-			
+			clearInterval(timer);
+			timer=setInterval(function(){
+				var Dis=parseInt(getStyle($('box'),'marginTop'))-10;
+				if(Dis<0){
+					Dis=0;
+					clearInterval(timer);
+				}
+				$('box').style.marginTop=Dis+'px'
+			},40)
 		}
 	</script>
 </html>

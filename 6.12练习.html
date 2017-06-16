@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<!--<img src="img/animal3.gif"/>-->
+		距离：
+		<input type="text" name="" id="input1" value="Jun 14,2017 20:00:00" />
+		<br />
+		还剩：
+		<input type="text" name="" id="input2" value="" />
+		<button id="bnt">开始倒计时吧</button>
+	</body>
+	<script src="js1/new_file.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		$('bnt').onclick=function(){
+			var newDate=new Date($('input1').value);
+		var timer=	setInterval(function(){
+			var nowDate=new Date();	
+			var t=(newDate- nowDate)/1000
+			if(t<=0){
+				clearInterval(timer)
+				return
+			}
+			$('input2').value=Math.floor(t/86400)+'天'+Math.floor(t%86400/3600)
+				+'时'+Math.floor(t%86400%3600/60)+'分'
+				+Math.floor(t%60)+'秒';
+			},1000)
+		}
+		
+	</script>
+</html>

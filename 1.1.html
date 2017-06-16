@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/yangshi.css"/>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background: black;
+				margin: 10px;
+				float:left;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript" src="js1/new_file.js">
+		
+	</script>
+	<script type="text/javascript">
+		var oDiv=document.getElementsByTagName('div');
+		for(var i=0;i<9;i++){
+			document.body.innerHTML+='<div>'+'</div>';
+		}
+		var len=oDiv.length;
+		var num=0
+		document.onclick=function(){
+		var time=setInterval(function(){
+				Go(oDiv[num],'marginTop',10,300)
+				if(num<len-1){
+					num++;
+				}else{
+					clearInterval(time);
+				}
+			},200)
+		
+		}
+	</script>
+</html>

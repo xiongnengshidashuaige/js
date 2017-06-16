@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="time">
+			
+		</div>
+		<img src="img/0.JPG"/>
+		<img src="img/0.JPG"/>
+		<!--<img src="img/colon.JPG"/>-->
+		<img src="img/0.JPG"/>
+		<img src="img/0.JPG"/>
+		<!--<img src="img/colon.JPG"/>-->
+		<img src="img/0.JPG"/>
+		<img src="img/0.JPG"/>
+	</body>
+	<script type="text/javascript">
+		var img=document.getElementsByTagName('img');
+		var time=document.getElementById('time')
+	setInterval(function(){
+		var myDate=new Date();
+		var hour=myDate.getHours();
+		var min=myDate.getMinutes();
+		var secon=myDate.getSeconds();
+		var str=hour+''+min+''+secon;
+		 time.innerHTML=str;
+		 for(var i=0;i<img.length;i++){
+		 	img[i].src='img/'+str.charAt(i)+'.JPG';
+		 }
+	},1000)
+	</script>
+</html>

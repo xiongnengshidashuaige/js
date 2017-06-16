@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div id="img"></div>-->
+		<img src="img/0.JPG"/>
+		<img src="img/0.JPG">
+			<img src="img/colon.JPG">
+		<img src="img/0.JPG">
+		<img src="img/0.JPG">
+			<img src="img/colon.JPG">
+		<img src="img/0.JPG">
+		<img src="img/0.JPG">
+		
+	</body>
+	<script src="js1/new_file.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aImg=document.getElementsByTagName('img');
+//		var img=document.getElementById('img')
+		var	mun=true;
+		setInterval(function(){
+			var myDate=new Date();
+			var oHour=myDate.getHours();
+			var oMinute=myDate.getMinutes();
+			var osecond=myDate.getSeconds();
+			var	str=tm(oHour)+':'+tm(oMinute)+':'+tm(osecond);
+				aImg.innerHTML=str
+			for(var i=0;i<str.length;i++){
+				aImg[i].src='img/'+str.charAt(i)+'.JPG'
+			}
+		},1000)
+		setInterval(function(){
+			if(mun){
+				aImg[2].src='img/colon.JPG'
+				aImg[5].src='img/colon.JPG'
+			}else{
+				aImg[2].src='img/colon1.JPG'
+				aImg[5].src='img/colon1.JPG'
+			}
+			mun=!mun;
+		},500)
+		
+		
+		
+		function tm(n){
+//			var m=n
+			n<10 ? n='0'+n : n=n
+			return n
+		}
+		
+//		var n='height';
+//		console.log(n.charAt(5))
+	</script>
+</html>

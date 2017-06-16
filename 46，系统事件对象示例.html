@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		
+		setInterval(function(){
+			var myDate=new Date();
+			var oour=myDate.getHours();
+			var oinute=myDate.getMinutes();
+			var oSecon=myDate.getSeconds();
+		
+			document.body.innerHTML=oour+':'+oinute+':'+oSecon;
+			
+//			var madate=new Date();
+//			var oHour=myDate.getHours();
+//			var minute=myDate.getMinutes();
+//			var secod=myDate.getSeconds();
+//			document.body.innerHTML=oHour+':'+minute+':'+secod;
+		},1000)
+	</script>
+</html>

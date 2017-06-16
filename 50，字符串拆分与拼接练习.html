@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				display: inline-block;
+				height: 40px;
+				width: 40px;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 40px;
+				background: pink;
+				color: #FFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="up">猥琐发育，别浪~</div>
+		<div id="down">
+			<!--<span>猥</span>-->
+		</div>
+		<button id="btn">开始转换</button>
+	</body>
+	<script src="js1/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var str=$('up').innerHTML;
+		$('btn').onclick=function(){
+			var arr=str.split('');
+			var newStr='';
+			for(var i=0;i<arr.length;i++){
+				newStr+='<span>'+arr[i]+'</span>';
+			}
+			$('down').innerHTML=newStr;
+		}
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				border: 1px solid black;
+				height: 200px;
+				width: 150px;
+				overflow: scroll;
+				word-break: break-all;
+			}
+			span{
+				height: 40px;
+				width: 40px;
+				line-height: 40px;
+				display: inline-block;
+				color: white;
+				/*background: plum;*/
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+		</div>
+		<input type="text" name="" id="" value="" />
+		<button>发送</button>
+	</body>
+	<script type="text/javascript">
+		var arrcolor=['yellow','blue','red','black']
+		var Text=document.getElementsByTagName('div')[0];
+		var Input=document.getElementsByTagName('input')[0];
+		var but=document.getElementsByTagName('button')[0];
+		var span=document.getElementsByTagName('span')[0];
+//		but.onclick=function(){
+////			Text.innerHTML+=Input.value;
+//			var str=Input.value
+//			var arr=str.split('');
+//			for(var i=0;i<arr.length;i++){
+//			Text.innerHTML+='<span style="background:'+arrcolor[i%4]+'">'+arr[i]+'</span>';
+//			}
+//		}
+		but.onclick=function(){
+			var str=Input.value;
+			var arr=str.split('')
+			for(var i=0;i<arr.length;i++){
+				Text.innerHTML+='<span style="background:'+arrcolor[i%4]'">'+arr[i]+'</span>';
+			}
+		}
+	</script>
+</html>

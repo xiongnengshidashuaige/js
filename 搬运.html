@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/yangshi.css"/>
+		<style type="text/css">
+			#box{
+				border: 1px solid black;
+				width: 550px;
+				height: 400px;
+			}
+			#fl{
+				background: cadetblue;
+				height: 100%;
+				width: 200px;
+				float: left;
+			}
+			#center{
+				background:white;
+				height: 100%;
+				width: 150px;
+				float: left;
+			}
+			#fr{
+				background:yellowgreen;
+				height: 100%;
+				width: 200px;
+				float: left;
+			}
+			button{
+				margin-left: 20px;
+				height: 40px;
+				width: 100px;
+				margin-top: 100px;
+				display: block;
+			}
+			span{
+				display: inline-block;
+				font-size: 30px;
+				/*margin-left: 50px;*/
+			}
+			.marp{
+				margin-top: 20px;
+				margin-left: 50px;
+			}
+			#list{
+				display: none;
+			}
+			li{
+				width: 25px;
+				height: 25px;
+				background: pink;
+				border-radius: 50%;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="fl">
+			深刻的放假哦is的风景哦is淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的的
+			水电开发发发发发发发发发发发发发发发发发发发发发发发发发发发
+			受到法律框架的分开了就浪费卡死；飞快跑啊爱上了点卡；蓝色房间
+			</div>
+			<div id="center">
+				<button id="btn">开始搬运</button>
+				<div class="marp">
+				<span id='aa'>0</span>/<span id="bb">0</span>
+				</div>
+				<ul id="list"> 
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div id="fr">
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js1/eeee.js" ></script>
+	<script type="text/javascript">
+		var aLi=$('list').getElementsByTagName('li');
+		var str=$('fl').innerHTML;
+		var num=0;
+		var i=0;
+		$('btn').onclick=function(){
+			$('list').style.display='block';
+			$('bb').innerHTML=str.length;
+			var timer=setInterval(function(){
+				var cont=str.substring(i);
+				$('fl').innerHTML=cont;
+				$('aa').innerHTML=$('fl').innerHTML.length;
+				if(i>str.length-1){
+					$('list').style.display='none';
+					clearInterval(timer);
+					alert('完毕');
+					return;
+				}
+				if(num>aLi.length-1){
+					num=0
+				}
+				for(var j=0;j<aLi.length;j++){
+					aLi[j].style.background='plum';
+				}
+				aLi[num].style.background='red';
+				$('fr').innerHTML+=str.substring(i,i+1)
+				num++;
+				i++
+			},110)
+		}
+//		var str=$('fl').innerHTML;
+//		var i=0;
+//		var num=0;
+//		$('btn').onclick=function(){
+//			$('list').style.display='block';
+//			$('bb').innerHTML=str.length;
+//			var timer = setInterval(function(){
+//			var leftstr=str.substring(i);
+//			$('fl').innerHTML=leftstr;
+//			$('aa').innerHTML=$('fl').innerHTML.length;
+//			if(i>str.length-1){
+//				$('list').style.display='none';
+//				clearInterval(timer)
+//				alert('搬运完毕')
+//				return;
+//			}
+//			if(num>aLi.length-1){
+//				num=0;
+//			}
+//			for(var j=0;j<aLi.length;j++){
+//				aLi[j].style.background='blue';
+//			}
+//			aLi[num].style.background='red'; 
+//			$('fr').innerHTML+=str.substring(i,i+1)
+//			num++;
+//			i++;
+//			},110)
+//		}
+	</script>
+</html>

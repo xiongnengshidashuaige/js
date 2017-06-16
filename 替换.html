@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 400px;
+				width: 400px;
+				background: sandybrown;
+				position: relative;
+			}
+			#text{
+				width: 300px;
+				height: 150px;
+				padding: 40px 0;
+				background: white;
+				border: 1px solid sandybrown;
+				margin: 30px 0;
+			}
+			#fr{
+				position: absolute;
+				top: 0;
+				right: 30px;
+			}
+			li{
+				list-style: none;
+				padding: 10px;
+				background: greenyellow;
+				margin: 10px;
+			}
+			li:hover{
+				background: red;
+				cursor: pointer;
+			}
+			#bot{
+				width: 100%;
+				height: 100px;
+				background:goldenrod;
+				position: absolute;
+				bottom: 0;
+				display: none;
+			}
+			span{
+				display: inline-block;
+				padding:10px 20px;
+				border: 1px solid goldenrod;
+				
+			}
+			span:hover{
+				background: red;
+				color: white;
+			}
+			#relpace,#pace{
+				display: none;
+			}
+			#relpace1,#scour1{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div id="text">
+				爵士队哈神京东了看的哦按时控件的卡受京东 艾饺大神点击卡受京东卡受打开了
+				阿斯达萨殿萨达尽快的俗爱撒旦所大神京东卡受极大是假的萨殿家属岛剑客俗爱 按时极大数据库丹三
+				啊的撒大神大生姜可叠加阿斯达尽快
+			</div>
+			<ul id="fr">
+				<li>展开</li>
+				<li id="scour1">查找</li>
+				<li id="relpace1">替换</li>
+			</ul>
+			<div id="bot">
+				<div class="marp">
+					<span id="scour">
+						查找
+					</span>
+					<span id="relpace">
+						替换
+					</span>
+				</div>
+				<input type="text" name="" id="our" value="" />
+				<input type="text" name="" id="pace" value="" />
+				<button id="but">查找</button>
+			</div>
+		</div>
+	</body>
+	<script src="js1/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aLi=$('fr').getElementsByTagName('li');
+		for(var i=0;i<aLi.length-1;i++){
+		var str=1;
+		aLi[i].onclick=function(){
+			if(str==1){
+				aLi[0].innerHTML='隐藏'
+				$('bot').style.display='block'
+				$('scour1').style.display='block'
+				$('relpace1').style.display='block'
+				str=0
+			}else{
+				aLi[0].innerHTML='展开'
+				$('bot').style.display='none'
+				$('relpace1').style.display='none'
+				$('scour1').style.display='none'
+				str=1
+			}
+		}
+			$('relpace1').onclick=function(){
+				$('relpace').style.display='inline-block'
+				$('pace').style.display='inline-block'
+				$('but').innerHTML='替换'
+			}
+			$('scour').onclick=function(){
+				fn()
+			}
+			$('scour1').onclick=function(){
+				fn()
+			}
+			}
+			function fn(){
+				$('relpace').style.display='none'
+				$('pace').style.display='none'
+				$('but').innerHTML='查找'
+		}
+	</script>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/yangshi.css"/>
+		<style type="text/css">
+			li{
+				height: 50px;
+				width: 150px;
+				/*border: 1px solid red;*/
+				line-height: 50px;
+				text-align: center;
+				margin: 100px;
+			}
+			li a{
+				display: inline-block;
+				height: 50px;
+				width: 100%;
+				background: cornflowerblue;
+				color: #FFF;
+				display: none;
+			}
+			li .active{
+				display: inline-block;
+			}
+			li div{
+				/*border: 1px solid blue;*/
+				height: 50px;
+				overflow: hidden;
+				border-radius: 10px;
+			}
+			h1{
+				border-bottom: 1px solid white;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li id="busness">
+				<div id="box">
+					<a href="#" class="active">我是商家用户</a>
+					<a href="#">支付宝商家</a>
+					<h1></h1>
+					<a href="#">口碑商家</a>
+				</div>
+			</li>
+		</ul>
+	</body>
+	<script src="js1/new_file.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aA=$('box').getElementsByTagName('a');
+		var timer=null;
+		$('busness').onmouseover=function(){
+			for(var i=0;i<aA.length;i++){
+				aA[i].className='active';
+			}
+			aA[0].className='';
+			clearInterval(timer);
+			timer =  setInterval(function(){
+				var H = parseInt(getStyle($('box'),'height'))+5;
+				if(H>=100){
+					H=100;
+					clearInterval(timer);
+				}
+				$('box').style.marginTop=(50-H)/2+'px';
+				$('box').style.height=H+'px';
+			},40)
+		}
+		
+		$('busness').onmouseleave=function(){
+//			for(var i=0;i<aA.length;i++){
+//				aA[i].className='';
+//			}
+//			aA[0].className='active';
+			clearInterval(timer);
+			timer =  setInterval(function(){
+				var H = parseInt(getStyle($('box'),'height'))-5;
+				if(H<=50){
+					H=50;
+					clearInterval(timer);
+					aA[0].className='active';
+//					console.log(1);
+				}
+				$('box').style.marginTop=(50-H)/2+'px';
+				$('box').style.height=H+'px';
+			},40)
+		}
+		
+		function slide(obj,state){
+			clearInterval(timer);
+			timer =  setInterval(function(){
+				var H = parseInt(getStyle($('box'),'height'))+state;
+				if(H>=100 || H<=50){
+					state>0 ? H=100 : H=50;
+//					if(H=50){
+//						aA[0].className='active';
+//					}
+					switch (state){
+						case state>0:
+							H=100;
+							break;
+						case state<0:
+							H=50;
+							aA[0].className='active';
+							break;
+						default:
+							break;
+					}
+					
+					clearInterval(timer);
+				}
+				$('box').style.marginTop=(50-H)/2+'px';
+				$('box').style.height=H+'px';
+			},40)
+		}
+	</script>
+</html>

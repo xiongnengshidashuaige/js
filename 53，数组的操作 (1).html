@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		1,数组的定义
+//		var arr=[1,2,3];
+//		var arr=new Array(1,2,3);
+//		alert(arr);
+//		var arr=new Array('4');  //用对象定义数组时，单个数字会被解析成数组长度
+//		alert(arr.length);
+//		2,清空数组的方法
+//		var arr=['a','b','c'];
+//		arr.length=0;  //通过设置数组的长度清空数组
+//		arr=[];    //通过重新赋值，清空数组
+//		alert(arr);
+//		3,为数组后面追加内容
+//		var arr=['a','b','c'];
+//		arr.push('d');
+//		alert(arr.push('d'));   //push方法会返回push完成之后的数组长度
+//		4,删除数组的最后一条数据
+//		arr.pop();
+//		alert(arr.pop());    //pop方法返回值是被删除的数据内容
+//		5,为数组前面添加内容
+//		arr.unshift('A','B');
+//		alert(arr.unshift('A','B'));  //unshift返回添加文成之后的数组长度
+//		6,删除数组第一条
+//		arr.shift();
+//		alert(arr.shift());  //shift方法返回值是被删除的数据内容
+		
+//		小练习:内容逆序
+//		var arr=['第1条','第2条','第3条','第4条','第5条'];
+//		var newArr=[];
+//		var Len=arr.length;
+//		for(var i=0;i<Len;i++){
+////			newArr.push(arr.pop());
+////			newArr.unshift(arr.shift());
+//		}
+//		alert(newArr);
+		
+//		7,瑞士军刀 splice()
+//		功能:对数组进行删除,替换,添加的操作
+		
+//		var arr=['a','b','c'];
+		//(1):删除
+//		arr.splice(0,1);   //从数组下表为0的数据开始，删除1条
+//		alert(arr);
+//		(2)替换
+//		arr.splice(1,1,'B');  //从数组下表为0的数据开始，删除1条，然后替换为B
+//		alert(arr);
+//		(3)添加
+//		arr.splice(1,0,'A');
+//		alert(arr);
+//		alert(arr.splice(0,2));  //删除的时候返回被删除的内容
+//		alert(arr.splice(1,0,'B'));  //添加的方法没有返回值
+		
+//		小练习:数组的去重
+		var arr=[1,2,3,2,2,4,3,3,5,6,7,7,7,4,4,4,4];
+//		var arr=[1,2,3,2,2];
+//		逐个对比
+		for(var i=0;i<arr.length;i++){
+			for(var j=i+1;j<arr.length;j++){
+				if(arr[j]==arr[i]){
+					arr.splice(j,1);
+					j--;
+				}
+			}
+		}
+//		alert(arr);
+		
+//		8,数组的排序
+//		(1)字符串排序
+//		var arr=['c','e','a','b','d'];
+//		arr.sort();
+//		alert(arr);
+//		(2)数字排序
+//		var arr=[3,5,4,2,2,1];
+//		arr.sort();
+//		alert(arr);
+//		(3)sort()方法的问题
+//		var arr=[3,5,4,2,23,1];  //sort()默认将数组的元素转为了字符串，然后进行排序
+//		arr.sort();
+//		alert(arr);
+//		(4)自定义函数进行排序
+//		var arr=[3,5,4,2,23,1,46];
+//		arr.sort(function(a,b){
+//			return a-b;     //从小到大排序，返回值为正则调换位置，为负不调换
+//		})
+//		alert(arr);
+//		arr.sort(function(a,b){
+//			return b-a;     //从大到小排序，返回值为正则调换位置，为负不调换
+//		})
+//		alert(arr);
+//		var arr=['345px','1px','10px','456px'];
+//		arr.sort(function(a,b){
+//			return parseInt(a)-parseInt(b);     //从小到大排序，返回值为正则调换位置，为负不调换
+//		})
+//		alert(arr);
+
+//		(5)自定义函数随机排列
+//		var arr=[3,5,4,2,23,1,46];
+//		arr.sort(function(){
+//			return Math.random()-0.5;     //从小到大排序，返回值为正则调换位置，为负不调换
+//		})
+//		console.log(arr);
+//		9,Math的新方法
+//		(1)生成0~1之间的随机小数
+//		console.log(Math.random());
+//		(2)随机生成0或者1
+//		var n = Math.round(Math.random());
+//		console.log(n);
+//		(3)生成0~10之间的随机整数
+//		var n = Math.round(Math.random()*10);
+//		console.log(n);
+//		(4)生成5~10之间的随机整数
+//		var n = Math.round(Math.random()*5+5);
+//		console.log(n);
+//		(5)生成10~20之间的随机整数
+//		var n = Math.round(Math.random()*10+10);
+//		console.log(n);
+//		(5)生成x~y之间的随机整数
+//		function creatNum(x,y){
+//			return Math.round(Math.random()*(y-x)+x);
+//		}
+//		console.log(creatNum(101,105));
+//		(6)向下取整:Math.floor(),向上取整:Math.ceil()
+//		console.log(Math.ceil(1.000001));
+
+//		10,reverse() 数组逆序
+//		var arr=[1,2,3,4,5];
+//		arr.reverse();
+//		alert(arr);
+//		var str='abcdefg';
+//		console.log(str.split('').reverse().join(''));
+		
+	</script>
+</html>

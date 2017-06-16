@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/yangshi.css"/>
+		<style type="text/css">
+			/*.goods{
+			}*/
+			.goods li{
+				height: 300px;
+				width: 150px;
+				border: 1px solid red;
+				background: pink;
+			}
+			.box{
+				height: 100%;
+				width: 100%;
+				background: #FFF;
+				position: relative;
+				left: 0;
+				top: 0;
+			}
+			.box input{
+				width: 147px;
+				
+			}
+			.box img{
+				width: 100%;
+			}
+			.goodsTable th{
+				line-height: 50px;
+				background: cornflowerblue;
+				color: #FFF;
+				min-width: 200px;
+			}
+			.goodsTable td{
+				line-height: 40px;
+				background: lightblue;
+				text-align: center;
+			}
+			.goodsTable img{
+				max-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<ul class="goods">
+				<li>
+					<div class="box">
+						<input type="text" name="" value="Jun 14,2017 09:51:30" />
+						<button>确定</button>
+						<h5>0天0时0分0秒</h5>
+						<img src="img/u0.png"/>
+						<p>我是一只可爱的宠物</p>
+						抢购价:￥
+						<span>200</span>
+					</div>
+				</li>
+			</ul>
+			<table class="goodsTable" border="0" cellspacing="0" cellpadding="">
+				<tr>
+					<th>商品名称</th>
+					<th>商品价格</th>
+					<th>商品图片</th>
+				</tr>
+				<!--<tbody>-->
+					<!--<tr>
+						<td>Data</td>
+						<td>Data</td>
+						<td>Data</td>
+					</tr>-->
+				<!--</tbody>-->
+			</table>
+			<div>
+				总价:
+				<span id="all">0.00</span>
+				元
+			</div>
+		</div>
+	</body>
+	<script src="js1/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		1,先给button加点击事件,倒计时开始.
+//		2,倒计时结束(判断t<=0)之后,box左右晃动(shake函数)
+//		3,box晃动之后(shake的回调函数),box向下移动(Go函数),并且逐渐变透明(Opacity)
+//		4,等box向下走到目标点之后,table中出现下架商品信息
+//		5,修改总价
+		var aBox=document.getElementsByClassName('box');
+		var oInput=aBox[0].getElementsByTagName('input')[0];
+		var oBtn=aBox[0].getElementsByTagName('button')[0];
+		var oTime=aBox[0].getElementsByTagName('h5')[0];
+		var oImg=aBox[0].getElementsByTagName('img')[0];
+		var oName=aBox[0].getElementsByTagName('p')[0];
+		var oPrice=aBox[0].getElementsByTagName('span')[0];
+		var oTable=document.getElementsByClassName('goodsTable')[0];
+		
+//		1,先给button加点击事件,倒计时开始.
+		oBtn.onclick=function(){
+			var newDate=new Date(oInput.value);
+			oBtn.time=setInterval(function(){
+				var nowDate=new Date();
+				var t=(newDate-nowDate)/1000;
+				if(t<=0){
+					clearInterval(oBtn.time);
+					shake(aBox[0],'left',function(){ //2,倒计时结束(判断t<=0)之后,box左右晃动(shake函数)
+						Opacity(aBox[0],-0.05);  //3,并且逐渐变透明(Opacity)
+						Go(aBox[0],'top',10,300,function(){ //3,box向下移动(Go函数)
+//							 4,这个匿名函数用来控制下架商品信息展示并计算下架商品总价
+							oTable.innerHTML+='<tr>'
+												+'<td>'+oName.innerHTML+'</td>'
+												+'<td>'+oPrice.innerHTML+'元</td>'
+												+'<td><img src="'+oImg.src+'"/></td>'
+											+'</tr>';
+							$('all').innerHTML=parseFloat($('all').innerHTML)
+												+ parseFloat(oPrice.innerHTML); //5,修改总价
+						}); 
+					}); 
+					return;
+				}
+				var Day=Math.floor(t/86400)+'天';
+				var Hour=Math.floor(t%86400/3600)+'时';
+				var Minute=Math.floor(t%86400%3600/60)+'分';
+				var Second=Math.floor(t%60)+'秒';
+				oTime.innerHTML=Day+Hour+Minute+Second;
+			},1000)
+		}
+		
+	</script>
+</html>

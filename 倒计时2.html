@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<span>距离:</span>
+			<input type="text" name="" id="in1" value="" />
+		</div>
+		<div id="box1">
+			<span>还剩:</span>
+			<input type="text" name="" id="in2" value="" />
+			<button>倒计时</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var in1=document.getElementById('in1');
+		var in2=document.getElementById('in2');
+		setInterval(function(){
+		var newDate=new Date('Jun,14,2017, 18:20:00');
+		var nowDate=new Date();
+		var t=(newDate-nowDate)/1000;
+		var str=Math.floor(t/86400)+'天'+Math.floor(t%86400/3600)
+				+'时'+Math.floor(t%86400%3600/60)+'分'
+				+Math.floor(t%60)+'秒';
+				in1.value=newDate;
+				in2.value=str
+		},1000)
+	</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 50px;
+				width: 50px;
+				background: #D8D8D8;
+				float: left;
+				/*display: inline-block;*/
+				margin: 0 5px;
+			}
+			/*div:nth-of-type(1){
+				margin-top: 100px;
+			}*/
+		</style>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript" src="js1/new_file.js">
+		
+	</script>
+	<script type="text/javascript">
+		var aDiv=document.getElementsByTagName('div');
+		var str=''
+		for(var i=0;i<7;i++){
+			str+='<div></div>';
+		}
+		document.body.innerHTML=str;
+		var len=aDiv.length;
+		var num=0;
+		
+		document.onclick=function(){
+			var timer = setInterval(function(){
+				Go(aDiv[num],'marginTop',10,300);
+				if(num<len-1){
+					num++;
+				}else{
+					clearInterval(timer);
+				}
+			},100);
+		}
+		
+	</script>
+</html>
