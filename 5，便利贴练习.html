@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.control{
+				width: 400px;
+				border: 1px solid mediumvioletred;
+				border-radius: 10px;
+				margin: auto;
+				text-align: center;
+				padding: 20px;
+			}
+			.control input,.control textarea{
+				width: 90%;
+			}
+			.control input{
+				height: 30px;
+			}
+			.control textarea{
+				resize: none;
+				height: 100px;
+				margin:10px 0;
+			}
+			.control button{
+				padding: 10px 40px;
+			}
+			#cont{
+				border: 2px solid cornflowerblue;
+				height: 500px;
+				margin-top: 20px;
+				border-radius: 4px;
+				position: relative;
+				overflow: hidden;
+			}
+			.box{
+				height: 200px;
+				width: 200px;
+				background: url(img/box_bg.png) no-repeat;
+				background-size: 100% 100%;
+				padding: 10px;
+				position: absolute;
+				top: 0;
+				/*top: -210px;*/
+			}
+			.box span{
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				color: #FFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="control">
+			<input type="text" name="" id="user" value="我是昵称" placeholder="请输入昵称" />
+			<textarea id="word" name="" rows="" cols="" placeholder="请输入留言内容">
+这个效果不错这个效果不错这个效果不错
+			</textarea>
+			<button id="btn">发送</button>
+		</div>
+		<div id="cont">
+			<!--<div class="box">
+				<h2>Yooye</h2>
+				<p>我是文字</p>
+				<span>X</span>
+			</div>-->
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		$('btn').onclick=function(){
+			var oDiv=document.createElement('div');
+			var oH2=document.createElement('h2');
+			var oP=document.createElement('p');
+			var oSpan=document.createElement('span');
+			
+			oH2.innerHTML=$('user').value;
+			oP.innerHTML=$('word').value;
+			oSpan.innerHTML='X';
+			oSpan.onclick=function(){
+				$('cont').removeChild(this.parentNode);
+			}
+			
+			oDiv.setAttribute('class','box');
+			var T=Math.random()*300;  //生成随机top值
+			var L=Math.random()*( parseInt(getStyle($('cont'),'width'))-200 );  //生成随机left值
+			oDiv.setAttribute('style','top:'+T+'px;left:'+L+'px;');
+			
+			oDiv.appendChild(oH2);
+			oDiv.appendChild(oP);
+			oDiv.appendChild(oSpan);
+			
+			$('cont').appendChild(oDiv);
+		}
+	</script>
+</html>

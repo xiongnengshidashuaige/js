@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 100px;
+				background: cornflowerblue;
+				position: absolute;
+				top: 200px;
+				left: 200px;
+				border: 10px solid rgba(0,0,0,0.5);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		$('box').onmousedown=function(ev){
+			var newEv=ev||event;
+			var loc='';  //'left'/'right'  //这个变量用来保存决定鼠标指针位置的变量
+			var L=$('box').offsetLeft;  //获取元素距离屏幕左边缘的偏移量
+			var mouseX=newEv.clientX;  //点下去瞬间，鼠标指针相对于浏览器左边缘的偏移量
+			var w=$('box').offsetWidth; //每次鼠标点击的时候都重新获取，当前元素的宽度值
+			
+			if(mouseX < L+w && mouseX > L+w-10 ){
+				loc='right';
+			}
+			
+			if(mouseX >L && mouseX<L+10){
+				loc='left';
+			}
+			
+			document.onmousemove=function(ev){
+				var newEv=ev||event;
+				var addWidth=newEv.clientX-mouseX;
+				if(loc=='right'){
+					$('box').style.width=w+addWidth+'px';
+				}else if(loc=='left'){
+					$('box').style.width=w-addWidth+'px';
+					$('box').style.left=L+addWidth+'px';
+				}
+			}
+			
+			document.onmouseup=function(){
+				this.onmousemove=null;
+			}
+		}
+	</script>
+</html>

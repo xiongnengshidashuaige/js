@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				padding: 20px;
+			}
+			#box1{
+				background: blue;
+			}
+			#box2{
+				background: green;
+			}
+			#box3{
+				background: pink;
+				/*position: relative;
+				top: 100px;*/
+			}
+			#share{
+				height: 200px;
+				width: 100px;
+				background: pink;
+				position: fixed;
+				top: 50%;
+				right: -140px;
+				margin-top: -100px;
+			}
+			#btn{
+				padding: 0;
+				height: 100px;
+				width: 25px;
+				text-align: center;
+				background: cornflowerblue;
+				position: absolute;
+				top: 70px;
+				left: -25px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box1">
+			<div id="box2">
+				<div id="box3"></div>
+			</div>
+		</div>
+		<div id="share">
+			<div id="btn">
+				分享该网页
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,事件冒泡,子集元素的事件会逐层冒泡给父级元素,冒泡跟代码结构相关,跟布局的视觉效果无关
+		function showId(ev){
+			var newEv=ev || event;
+			alert(this.getAttribute('id'));
+			newEv.cancelBubble=true;
+		}
+		$('box3').onclick=showId;
+		$('box2').onclick=showId;
+		$('box1').onclick=showId;
+		$('share').onmouseover=function(){
+//			console.log(1);
+			Go($('share'),'right',10,0,40);
+		}
+		$('share').onmouseout=function(){
+			Go($('share'),'right',-10,-140,40);
+		}
+		
+	</script>
+</html>

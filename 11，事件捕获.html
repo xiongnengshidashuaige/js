@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				padding: 20px;
+			}
+			#box1{
+				background: blue;
+			}
+			#box2{
+				background: green;
+			}
+			#box3{
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<div id="box2">
+				<div id="box3"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		function showId(){
+//			var newEv=ev || event;
+			alert(this.getAttribute('id'));
+//			newEv.cancelBubble=true;
+		}
+		
+		$('box1').addEventListener('click',showId,true);
+		$('box2').addEventListener('click',showId,true);
+		$('box3').addEventListener('click',showId,false);
+	</script>
+</html>

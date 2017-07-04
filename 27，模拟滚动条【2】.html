@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				height: 400px;
+				width: 10px;
+				background: #D8D8D8;
+				position: relative;
+				float: left;
+			}
+			#inner{
+				height: 50px;
+				width: 10px;
+				background: pink;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#cont{
+				height: 400px;
+				background: cornflowerblue;
+				width: 200px;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="inner"></div>
+		</div>
+		<div id="cont"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		计算每次拖动滚动条的时候右边的cont的高度变化值?   h
+//		已知条件:
+//		(1)滚动条最大top值     maxT
+//		(2)滚动条实时的top值      t
+//		(3)cont的最大高度      400
+//		t/maxT = h/400
+//		h=(t/maxT)*400
+		$('inner').onmousedown=function(ev){
+			var newEv=ev||event;
+			var beginY=newEv.clientY;
+			var T=$('inner').offsetTop;
+			var maxT=$('outer').offsetHeight-$('inner').offsetHeight; 
+			//计算出滚动条最大的top值
+//			var maxH=$('cont').offsetHeight;  //获取内容去的最大高度
+			document.onmousemove=function(ev){
+				var newEv=ev||event;
+				var addH=newEv.clientY-beginY;
+//				alert(newEv.clientY)
+				var t=T+addH;
+//				alert(addH)
+				if(t<0){
+					t=0;
+				}
+				if(t>maxT){
+					t=maxT;
+				}
+				$('inner').style.top=t+'px';
+				$('cont').style.height=400 - (t/maxT)*400 + 'px';
+//				alert(t/maxT)
+			}
+			document.onmouseup=function(){
+				this.onmousemove=null;
+			}
+			return false;
+		}
+	</script>
+</html>

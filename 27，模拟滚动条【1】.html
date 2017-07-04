@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				height: 400px;
+				width: 10px;
+				background: #D8D8D8;
+				position: relative;
+			}
+			#inner{
+				height: 50px;
+				width: 10px;
+				background: pink;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="inner"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		$('inner').onmousedown=function(ev){
+			var newEv=ev||event;
+			var beginY=newEv.clientY;
+			var T=$('inner').offsetTop;
+			document.onmousemove=function(ev){
+				var newEv=ev||event;
+				var addH=newEv.clientY-beginY;
+				var t=T+addH;
+				if(t<0){
+					t=0;
+				}
+				if(t>350){
+					t=350;
+				}
+				$('inner').style.top=t+'px';
+			}
+			document.onmouseup=function(){
+				this.onmousemove=null;
+			}
+		}
+	</script>
+</html>

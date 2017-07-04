@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				padding: 40px;
+				background: red;
+			}
+			#box{
+				position: relative;
+			}
+			#outer{
+				background: blue;
+				position: relative;
+			}
+			#inner{
+				background: green;
+			}
+			body{
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="outer">
+				<div id="inner"></div>
+			</div>
+		</div>
+	</body>
+	<script src="js/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		1,获取元素到定位父级的距离
+//		alert($('box').offsetTop);
+//		alert($('outer').offsetTop);
+		var iTop=0;
+		var obj=$('inner');
+		while(obj){
+			iTop+=obj.offsetTop;
+			obj = obj.offsetParent;
+//			console.log(1);
+		}
+//		console.log(iTop);
+		
+//		2,封装一个函数,只要调用该函数并出入指定对象,就会返回这个元素距离文档顶部/文档左边的 值
+		function cont(obj){
+		var	 on={'top':0,'left':0};
+			 while(obj){
+			 	on.top+=obj.offsetTop;
+			 	on.left+=obj.offsetLeft;
+			 	obj = obj.offsetParent;
+			 }
+			 	return on
+		}
+		console.log(cont($('inner')).left)
+	</script>
+</html>

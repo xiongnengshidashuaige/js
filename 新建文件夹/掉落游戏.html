@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				border: 1px solid black;
+				height: 100px;
+				width: 50px;
+				position:absolute;
+				top: 0;
+				left: 0;
+			}
+			#marp{
+				position: relative;
+				margin: 50px 0;
+			}
+			.play{
+				border: 1px solid black;
+				height: 400px;
+				width: 600px;
+				position: absolute;
+				top: 0;
+				left: 51px;
+			}
+			img{
+				position: absolute;
+				height: 40px;
+				top:-40px
+			}
+		</style>
+	</head>
+	<body>
+		<button id="but">开始游戏</button>
+		<div id="marp">
+				
+			<div class="box">
+				<p>得分:
+				<span id="score">0</span>
+				</p>
+				<p>失分:
+					<span id="no">0</span>
+				</p>
+				</p>
+			</div>
+			<div class="play">
+				<img src="img/哭.png"/>
+			</div>
+		</div>
+	</body>
+	<script src="js1/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('but').onclick=function(){
+			
+		}
+	</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/yangshi.css"/>
+		<style type="text/css">
+			#box{
+				height: 400px;
+				width: 540px;
+				border: 1px solid black;
+				background: gainsboro;
+			}
+			ul{
+				width: 520px;
+				height: 300px;
+				border: 2px solid white;
+			}
+			li{
+				width:110px;
+				height: 140px;
+				float: left;
+				padding: 10px;
+			}
+			img{
+				height: 110px;
+				width: 100%;
+			}
+			.but{
+				text-align: center;
+				margin:20px ;
+			}
+			h4{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="but">
+				<button id="sm">从小到大</button>
+				<button id="upset">打乱顺序</button>
+			</div>
+			<ul id="marp">
+				<li>
+					<img src="img/u0.png"/>
+					<h4>1.宠物1</h4>
+				</li>
+				<li>
+					<img src="img/u0.png"/>
+					<h4>2.宠物2</h4>
+				</li>
+				<li>
+					<img src="img/u0.png"/>
+					<h4>3.宠物3</h4>
+				</li>
+				<li>
+					<img src="img/u0.png"/>
+					<h4>4.宠物4</h4>
+				</li>
+				<li>
+					<img src="img/u0.png"/>
+					<h4>5.宠物5</h4>
+				</li>
+				<li>
+					<img src="img/u0.png"/>
+					<h4>6.宠物6</h4>
+				</li>
+				<li>
+					<img src="img/u0.png"/>
+					<h4>7.宠物7</h4>
+				</li>
+				<li>
+					<img src="img/u0.png"/>
+					<h4>8.宠物8</h4>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js1/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aLi=$('marp').getElementsByTagName('li')
+		$('upset').onclick=function(){
+		var n = Math.round(Math.random()*8);
+			for(i=0;i<aLi.length;i++){
+//				aLi[i]=n
+//				alert(n)
+			}
+		}
+	</script>
+</html>

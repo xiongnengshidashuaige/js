@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#cont{
+				width: 600px;
+				height: 400px;
+				margin-top: 100px;
+				position: relative;
+				top: 0;
+				left: 0;
+				/*border: 1px solid red;*/
+			}
+			#cont .left{
+				float: left;
+				width: 99px;
+				height: 100px;
+				border: 1px solid black;
+				border-right: 0;
+			}
+			#cont .right{
+				float: right;
+				width: 498px;
+				border: 1px solid black;
+				height: 100%;
+				position: relative;
+			}
+			#cont .right img{
+				height: 40px;
+				position: absolute;
+				top: -40px;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">开始游戏</button>
+		<div id="cont">
+			<div class="left">
+				得分:<span id="get">0</span>
+				<br />
+				失分:<span id="lost">0</span>
+			</div>
+			<div class="right">
+				<img id="pic" src="img/face/pic1.png"/>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,先让按钮点击的时候,单个图片向下移动
+		$('btn').onclick=function(){
+			this.disabled=true;
+			this.innerHTML='游戏进行中~';
+			faceMove();
+		}
+//		2,通过函数的自调用让图片反复掉落
+		function faceMove(){
+//			3,随机生成0~458(为什么是458?)之间的数字作为图片标签的left值
+			var n=Math.round(Math.random()*458);
+			$('pic').style.left=n+'px';
+			$('pic').style.top='-40px';
+			//接下来需要修改图片路径，让不同路径的图片随机出现（定义一个图片路径数组，随机从其中取值）
+			var m=Math.round(Math.random()*5);
+			$('pic').src=arrImg[m];
+			Go($('pic'),'top',10,400,function(){
+				shake($('cont'),'top',function(){ //6,大容器的上下晃动
+	//				5,失分（为什么失分的代码写在这里？）
+					var lostNum= parseInt($('lost').innerHTML)+1; //(5-1),失分
+					$('lost').innerHTML=lostNum;
+					if(lostNum>=2){
+						clearInterval($('pic').timer);
+						$('btn').disabled=false;
+						$('btn').innerHTML='开始游戏'
+						alert('Game over~');
+						return;
+					}
+					faceMove();
+				}); 
+			})
+		}
+//		4,给图片添加点击事件,实现得分的代码逻辑
+//			(4-1),停止图片自身的Go函数定时器，让图片停止下落
+//			(4-2),让图片的src产生变化
+//			(4-3),让图片左右晃动（shake）
+//			(4-4),加分，获取到id为get的元素里面的innerHTML数字，重新赋值给自身作为新的innerHTML
+//			(4-5),让图片重新回到顶部，并在此下落
+		var arrImg=['img/face/pic1.png',
+					'img/face/pic3.png',
+					'img/face/pic4.png',
+					'img/face/pic5.png',
+					'img/face/pic6.png',
+					'img/face/cool.png'];
+		$('pic').onmousedown=function(){
+			clearInterval(this.timer); //(4-1),停止图片自身的Go函数定时器，让图片停止下落
+			this.src='img/face/pic2.png';    //(4-2),让图片的src产生变化
+			shake(this,'left',function(){  //(4-3),让图片左右晃动（shake）
+				faceMove(); //(4-5),让图片重新回到顶部，并在此下落。
+				
+			}); 
+			$('get').innerHTML= parseInt($('get').innerHTML)+1; //(4-4),加分
+		}
+	</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				height: 100px;
+				width: 100px;
+				position: fixed;
+				top: 50px;
+				left: 0;
+			}
+			#menu{
+				height: 300px;
+				width: 150px;
+				background: pink;
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">回放</button>
+		<img id="pic" src="img/animal1.jpeg"/>
+		<div id="menu"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,获取浏览器窗口的宽高度:document.documentElement.clientWidth
+//		2,获取元素的宽高度:$('pic').offsetWidth
+//		DOM BOM
+		var pos=[];
+		$('pic').onmousedown=function(ev){
+//			console.log($('pic').offsetHeight);
+			var newEv=ev||event;
+			var beginY=newEv.clientY - ($('pic').offsetTop);  //保存鼠标点击瞬间，鼠标指针相对于元素上边缘的偏移量
+			var beginX=newEv.clientX - ($('pic').offsetLeft);
+//			console.log(beginY);
+			document.onmousemove=function(ev){
+				var newEv=ev||event;
+				var T=newEv.clientY-beginY;
+				var L=newEv.clientX-beginX;
+				if(L<=0){
+					L=0;
+				}
+				if(L>=document.documentElement.clientWidth-$('pic').offsetWidth){
+					L=document.documentElement.clientWidth-$('pic').offsetWidth;
+				}
+				if(T<=0){
+					T=0;
+				}
+				if(T>=document.documentElement.clientHeight-$('pic').offsetHeight){
+					T=document.documentElement.clientHeight-$('pic').offsetHeight;
+				}
+				$('pic').setAttribute('style','top:'+T+'px;left:'+L+'px;');
+				pos.push({
+					'x':L,
+					'y':T
+				})
+//				console.log(JSON.stringify(pos));
+			};
+			
+			document.onmouseup=function(){
+				this.onmousemove=null;
+			}
+			return false;
+		}
+		
+		$('btn').ondblclick=function(){
+			var timer = setInterval(function(){
+				var oPos=pos.pop();
+				if(oPos){
+					$('pic').style.left=oPos.x+'px';
+					$('pic').style.top=oPos.y+'px';
+				}else{
+					clearInterval(timer);
+				}
+				
+			},50)
+		}
+	</script>
+</html>

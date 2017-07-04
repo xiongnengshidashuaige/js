@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="search" value="请输入姓名" />
+		<input type="text" name="" id="" value="" />
+		<select name="">
+			<option value=""></option>
+		</select>
+		<input type="text" name="" id="" value="" />
+		<input type="text" name="" id="" value="" />
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,焦点事件:一般针对能够与用户交互的元素(input,select,textarea)
+//		2,如何让输入框获取到焦点？
+//		(1)通过鼠标点击的方式
+//		(2)通过键盘Tab键
+//		(3)JS方法让元素获取焦点,或者触发焦点事件
+//		$('search').focus();  //让元素主动获取到焦点，不需要用户触发
+//		$('search').blur();   //让元素主动失去焦点
+//		3,焦点事件
+//		$('search').onfocus=function(){
+//			this.value='触发了焦点事件';
+//		}
+//		$('search').onblur=function(){
+//			this.value='失去焦点';
+//		}
+//		4,模拟placeholder
+		$('search').onfocus=function(){
+			if(this.value=='请输入姓名'){
+				this.value='';
+			}
+//			console.log(1);
+		}
+		$('search').onblur=function(){
+			if(this.value==''){
+				this.value='请输入姓名';
+			}
+//			console.log(2);
+		}
+	</script>
+</html>

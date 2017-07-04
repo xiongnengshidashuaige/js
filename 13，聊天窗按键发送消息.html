@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#cont{
+				min-height: 100px;
+				border: 1px solid black;
+				position: fixed;
+				width: 200px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="word" value="" />
+		<select name="" id="send">
+			<option value="e">按下Enter键发送</option>
+			<option value="ce">按下ctrl+Enter键发送</option>
+		</select>
+		<div id="cont"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+		$('word').onkeydown=function(ev){
+			var newEv=ev||event;
+//			console.log(newEv.keyCode);
+			var sendType=$('send').value;
+			if(newEv.keyCode==13 && sendType=='e' && !newEv.ctrlKey || newEv.keyCode==13 && sendType=='ce' && newEv.ctrlKey){
+				$('cont').innerHTML+=$('word').value;
+				$('word').value='';
+			}
+			
+//			if(newEv.keyCode==13 && sendType=='ce' && newEv.ctrlKey){
+//				$('cont').innerHTML+=$('word').value;
+//				$('word').value='';
+//			}
+		}
+	</script>
+</html>

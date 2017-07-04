@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,已经掌握的事件绑定方法，无法满足给一个元素绑定多个事件
+//		$('box').onclick=function(){
+//			alert(1);
+//		}
+//		$('box').onclick=function(){
+//			alert(2);
+//		}
+//		2,标准浏览器obj.addEventListener(事件名字，事件执行函数，是否捕获)
+//		$('box').addEventListener('click',function(){
+//			alert(this);
+//		},false);
+//		
+//		$('box').addEventListener('click',function(){
+//			alert(2);
+//		},false)
+		
+//		3,低版本IE（版本<=8）,obj.attachEvent(事件名称，事件执行函数)
+//		$('box').attachEvent('onclick',function(){
+//			alert(this);
+//		})
+//		
+//		$('box').attachEvent('onclick',function(){
+//			alert(this);
+//		})
+		
+//		4,两种方法的异同总结
+//			(1)addEventListener
+//				有捕获参数，事件名称没有on，事件执行顺序（始终顺序）,this指向触发事件的元素
+//			(2)attachEvent
+//				没有捕获参数,事件名称必须有on,事件的执行顺序(IE<=8,逆序;IE>=9,正序)，this指向window对象
+//		5,强行指定this指向
+//		function fn(a,b){
+//			alert(this);
+//			alert(a+b);
+//		}
+//		fn(); //this指向window
+//		fn.call(document,1,2);  //call()方法的第一个参数用来指定this指向
+//		6,封装一个通用的事件绑定函数
+		
+	</script>
+</html>

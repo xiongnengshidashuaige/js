@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.nb{
+				width: 700px;
+				height: 400px;
+				background: #EFEFE7;
+				overflow: hidden;
+				position: relative;
+			}
+			#box{
+				width: 500px;
+				height: 300px;
+				background: white;
+				margin-left: 30px;
+				margin-top: 30px;
+			}
+			li{
+				width: 50px;
+				height: 50px;
+				background: darkgray;
+				text-align: center;
+				line-height: 50px;
+				cursor: pointer;
+			}
+			ul{
+				position: absolute;
+				right:80px;
+				top: 30px;
+			}
+			#all{
+				display: none;
+			}
+			#ahy{
+				display: none;
+			}
+			li:hover{
+				background: red;
+			}
+			span{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nb">
+			<div id="box">
+				“啊~~”李爽双手捂脸大叫起来。谢文东上前抓住他的头发用力一拉，
+				让李爽的眼睛看着自己：
+				“知道吗？这就是欺负我的下场！
+				”李爽看着谢文东冰冷的眼睛，只是
+				一瞬间的感觉，这不是人类的眼睛，而
+				是只有野兽的眼睛才能发出这样的光芒。
+				现在他很怕，从小到大他第一次感觉到什
+				么叫死亡。不是因为自己脸上的伤口，
+				也不是谢文东手里的刀，而是站在自己
+				面前的这个即熟悉又陌生的人。
+			</div>
+			<ul>
+				<li id="zkai">展开</li>
+				<li id="all">查找</li>
+				<li id="ahy">替换</li>
+			</ul>
+			<input type="text" name="" id="find" value="" />
+			<input type="text" name="" id="replace" value="" />
+			<button id="search">查找</button>
+			<button id="btn">替换</button>
+		</div>
+	</body>
+	<script src="js1/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		var aLi=document.getElementsByTagName('li')
+		$('zkai').onclick=function(){
+			$('all').style.display='block'
+			$('ahy').style.display='block'
+		}
+	var	str=$('box').innerHTML
+		$('search').onclick=function(){
+			$('box').innerHTML=str.split($('find').value).join('<span>'+$('find').value+'</span>')
+		}
+		$('btn').onclick=function(){
+//			console.log(1)
+//			$('box').innerHTML=str.split($('find').value).join('<span>'+$('replace').value+'</span>')
+			if($('replace').value==''){
+			var	conf=confirm('是否要？')
+				if(conf){
+//					str=str.split($('find').value).join('');
+					$('box').innerHTML=str.split($('find').value).join('');
+				}
+			}else{
+				$('box').innerHTML=str.split($('find').value).join('<span>'+$('replace').value+'</span>')	
+			}
+		}
+	</script>
+</html>

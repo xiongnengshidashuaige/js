@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body style="height: 2000px;">
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,滚轮事件
+//		$('box').onmousewheel=function(){  //chrome,IE
+//			console.log(1);
+//		}
+//		$('box').addEventListener('DOMMouseScroll',function(){
+//			console.log(2)
+//		},false);
+//		2,滚动参数(可以判断滚轮方向)
+//		$('box').onmousewheel=function(ev){  //chrome,IE
+//			var newEv=ev||event;
+//			console.log(newEv.wheelDelta);  //-120 滚动条向下走   120 滚动条向上走
+//		}
+//		$('box').addEventListener('DOMMouseScroll',function(ev){ //firfox
+//			var newEv=ev||event;
+//			console.log(newEv.detail);  //3 滚动条向下走    -3 滚动条向上走
+//		},false);
+		
+//		3,统一滚动方向
+		$('box').onmousewheel=fn;
+		$('box').addEventListener('DOMMouseScroll',fn,false);
+		
+		function fn(ev){  //chrome,IE
+			var d=true;  //滚动条向下为true
+			var newEv=ev||event;
+			if(newEv.wheelDelta){
+				newEv.wheelDelta < 0 ? d=true : d =false;
+			}else{
+				newEv.detail > 0  ?  d=true : d=false;
+			}
+			
+			if(d){
+				$('box').style.height=$('box').offsetHeight + 10 + 'px';
+			}else{
+				$('box').style.height=$('box').offsetHeight - 10 + 'px';
+			}
+			return false;  //浏览器默认滚动的清除
+		}
+	</script>
+</html>

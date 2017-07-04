@@ -10,7 +10,7 @@ function getStyle(obj, attr) {
 	}
 }
 
-function Go(obj, attr, direct, target, endFn) {
+function Go(obj, attr, direct, target,sn, endFn) {
 	clearInterval(obj.timer);
 	obj.timer = setInterval(function() {
 		//为什么要写成obj.timer,为了解决多个元素的动画相互之间影响的问题
@@ -28,7 +28,7 @@ function Go(obj, attr, direct, target, endFn) {
 				endFn(); //实际调用Go函数的时候，我们有可能需要再Go函数执行完毕之后去做其他事情，这件事就通过回调函数endFn来实现
 			}
 		}
-	}, 40)
+	}, sn)
 }
 
 function Opacity(obj, state) {

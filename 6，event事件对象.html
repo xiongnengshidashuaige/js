@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+	</body>
+	<script src="js/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		1,event对象在火狐下面是,事件函数的第一个参数
+//		document.documentElement.onclick=function(){
+//			console.log(1);
+//			for(attr in event){
+//				document.body.innerHTML+=attr+':'+event[attr]+'</br>';
+//			}
+//		}
+		
+		$('btn').onclick=function(ev){
+			var newEv= ev || event;
+			for(attr in newEv){
+				document.body.innerHTML+=attr+':'+newEv[attr]+'</br>';
+			}
+		}
+	</script>
+</html>

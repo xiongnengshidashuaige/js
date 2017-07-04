@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,普通事件的取消
+//		$('box').onclick=function(){
+//			alert(1);
+//		}
+//		$('box').onclick=null;
+//		2,IE下的事件取消
+		function fn(){
+			alert(1);
+		}
+//		$('box').attachEvent('onclick',fn);
+//		$('box').detachEvent('onclick',fn);
+//		3,标准浏览器
+//		$('box').addEventListener('click',fn,true);
+//		$('box').removeEventListener('click',fn,false);
+	</script>
+</html>

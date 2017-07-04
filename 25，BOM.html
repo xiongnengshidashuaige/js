@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				height: 200px;
+				width: 100px;
+				border: 1px solid red;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body style="height: 2000px;">
+		<button id="btn">跳转</button>
+		<button id="close">关闭窗口</button>
+		<a href="#item">hash的测试</a>
+		<div id="outer">
+			<!--<div id="inner">-->
+				hash的测试hash的测试hash的测试hash的测试hash的测试hash的测试hash的
+				测试hash的测试hash的测试hash的测试hash的测试hash的测试
+				测试hash的测试hash的测试hash的测试hash的测试hash的测试
+			<!--</div>-->
+		</div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		BOM:browser object model
+//		1,打开新窗口,默认在新窗口打开window.open()
+//		$('btn').onclick=function(){
+//			window.open('http://www.qq.com')  //新页面打开
+//			window.open('http://www.qq.com','_blank');  //新页面打开
+//			window.open('http://www.qq.com','_self');  //本页面打开
+//		}
+//		2,打开新窗口的方法,会返回被打开的窗口对象,可以通过close()方法进行关闭
+//		var newPage=null;
+//		$('btn').onclick=function(){
+//			newPage = window.open('http://www.qq.com');  //新页面打开
+//		}
+//		$('close').onclick=function(){
+//			newPage.close();
+//		}
+		
+//		3,修改浏览器地址栏信息window.location (重要)
+//			(1)href  网页的url地址
+//			$('btn').onclick=function(){
+//				window.location.href='http://www.qq.com';
+//			}
+//			(2)search  url中?后面的值
+//			$('btn').onclick=function(){
+//				window.location.search='id=yooye';
+//			}
+//			(3)hash   url中#后面的值
+//			$('btn').onclick=function(){
+//				window.location.hash='newitem';
+//			}
+//		4,获取浏览器窗口尺寸
+//			$('btn').onclick=function(){
+//				console.log(document.documentElement.clientWidth)
+//			}
+//		5,滚动条距离
+//		$('btn').onclick=function(){
+//			console.log(document.documentElement.scrollTop); //firfox，IE
+//			console.log(document.body.scrollTop);  //chrom
+//			兼容性处理
+//			var myTop=document.documentElement.scrollTop || document.body.scrollTop;
+//			console.log(myTop);
+//		}
+//		6,内容高度
+		$('btn').onclick=function(){
+//			console.log(document.body.scrollHeight);
+			console.log($('outer').scrollHeight)
+		}
+//		7,事件
+//		var i=0;
+//		window.onscroll=function(){
+//			document.title=i++;
+//		}
+		
+//		window.onresize=function(){
+//			console.log(document.documentElement.clientWidth);
+//		}
+	</script>
+</html>

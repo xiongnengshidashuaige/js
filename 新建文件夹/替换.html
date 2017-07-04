@@ -57,6 +57,9 @@
 			#relpace1,#scour1{
 				display: none;
 			}
+			span{
+				color: red;
+			}
 		</style>
 	</head>
 	<body>
@@ -123,5 +126,9 @@
 				$('pace').style.display='none'
 				$('but').innerHTML='查找'
 		}
+			var cont=$('text').innerHTML;
+			$('relpace').onclick=function(){
+				$('text').innerHTML=str.splice($('our').value).join('<span>'+$('our').value+'</span>')
+			}
 	</script>
 </html>

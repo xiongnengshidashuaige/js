@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#cont{
+				min-height: 100px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="word" value="" />
+		<select name="">
+			<option value="">按下Enter键发送</option>
+			<option value="">按下ctrl+Enter键发送</option>
+		</select>
+		<div id="cont"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,键盘事件
+//		document.onkeydown=function(){
+//			console.log('down');
+//		}
+//		document.onkeyup=function(){
+//			console.log('up');
+//		}
+//		2,keyCode获取具体按键
+//		document.onkeydown=function(ev){
+//			var newEv=ev||event;
+//			console.log(newEv.keyCode);
+//		}
+//		3,当前的ctrl,shift,alt键是否按下
+//		document.onkeydown=function(ev){
+//			var newEv=ev||event;
+//			console.log(newEv.ctrlKey);
+//			console.log(newEv.shiftKey);
+//			console.log(newEv.altKey);
+//		}
+//		4,键盘事件的小案例
+		$('word').onkeydown=function(ev){
+			var newEv=ev||event;
+//			console.log(newEv.keyCode);
+			if(newEv.keyCode==13){
+				$('cont').innerHTML+=$('word').value;
+				$('word').value='';
+			}
+		}
+	</script>
+</html>

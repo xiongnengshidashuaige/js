@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="cont">
+			<input id="word" type="text" name="" id="" value="" />
+			<button id="btn">提交留言</button>
+			<ul id="list">
+				<li>
+					请留言
+					<button id="del">删除</button>
+				</li>
+			</ul>
+		</div>
+		<div id="box">
+			<span>我是span</span>
+		</div>
+	</body>
+	<script src="js/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		var oDiv=document.createElement('div');
+//		oDiv.innerHTML='我是文字';
+//		document.body.innerHTML=oDiv;
+//		document.body.appendChild(oDiv);
+//		$('btn').onclick=function(){
+//			var oLi=document.createElement('li');
+//			oLi.innerHTML=$('word').value;
+//			$('list').appendChild(oLi);
+//		}
+//		1,creatElement
+//		2,父级.appendChild()
+//		3,insertBefore(心元素，插入到这个元素前面)
+//		$('btn').onclick=function(){
+//			var oLi=document.createElement('li');
+//			oLi.innerHTML=$('word').value;
+//			$('list').insertBefore(oLi,$('list').children[0]);
+//		}
+//		4,移除元素节点
+		$('del').onclick=function(){
+			$('list').removeChild(this.parentNode);
+		}
+//		5,替换标签
+		$('btn').onclick=function(){
+			var oEm=document.createElement('em');
+			oEm.innerHTML='我是em';
+			oEm.onclick=function(){
+				alert(1);
+			}
+			$('box').replaceChild(oEm,$('box').children[0]);
+		}
+	</script>
+</html>

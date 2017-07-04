@@ -3,74 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="css/yangshi.css"/>
-		<style type="text/css">
-			#box>li{
-				float: left;
-				padding: 0 30px;
-			}
-			#hov{
-				display: none;
-			}
-			#hov li{
-				padding: 15px 0;
-			}
-			#wd{
-				display: none;
-			}
-			#hov li{
-				padding-top: 15px;
-				cursor: pointer;
-				
-			}
-			#wd li{
-				padding-top: 15px;
-			}
-			#tbk{
-				position: relative;
-			}
-			#hov{
-				position: absolute;
-				background: gray;
-			}
-			#hov li:hover{
-				background: yellowgreen;
-			}
-		</style>
 	</head>
 	<body>
-		<ul id="box">
-			<li>首页</li>
-			<li id="tbk">图标库
-				<ul id="hov">
-					<li>官方图标</li>
-					<li>多色图标</li>
-					<li>全部图标</li>
-				</ul>
-			</li>
-			<li id="tb">
-				图标管理
-			<ul id="wd">
-					<li>我的图标</li>
-					<li>我都收藏</li>
-					<li>我的项目</li>
-				</ul>
-			</li>
-			<li>帮助</li>
-		</ul>
+		
 	</body>
-	<script type="text/javascript">
-		document.getElementById('tbk').onmouseover=function(){
-			document.getElementById('hov').style.display='block'
-		}
-		document.getElementById('tbk').onmouseout=function(){
-			document.getElementById('hov').style.display='none'
-		}
-			document.getElementById('tb').onmouseover=function(){
-			document.getElementById('wd').style.display='block'
-		}
-		document.getElementById('tb').onmouseout=function(){
-			document.getElementById('wd').style.display='none'
-		}
-	</script>
 </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				padding: 20px;
+			}
+			#outer{
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div>我是div</div>
+		<ul id="list">
+			<li>
+				文字
+				<button>删除</button>
+			</li>
+			<li>
+				文字
+				<button>删除</button>
+			</li>
+			<li>
+				文字
+				<button>删除</button>
+			</li>
+			<li>
+				文字
+				<button>删除</button>
+			</li>
+			<li>
+				文字
+				<button>删除</button>
+			</li>
+		</ul>
+		<div>我是div</div>
+		<div id="cont">
+			cont-div
+			<div id="outer">
+				outer-div
+				<div id="inner">
+					inner-div
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/eeee.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		1，W3C 万维网联盟
+//		为了解决web应用开发中不同平台,不同技术,不同的开发者造成的不兼容的问题,指定一套统一的语法标准,
+//		2，DOM概念
+//		document object model  文档对象模型
+//		文档:HTML
+//		对象:HTML中的元素(标签)看成一个对象去操作
+//		文档对象模型:为了方便JS操作HTML中的标签元素,所指定的一套模型(规则)
+//		3,文档的树形结构（概念）
+		
+//		4,已经学过的DOM操作的方法
+//			(1) getElementById……
+//			(2)obj.style
+//			   obj.classname
+//			   oImg.src
+//			   oInput.value
+//			   oInput.checked
+//		5,新的DOM操作方法
+//			(1)childNodes 获取元素的子节点
+//			alert($('list').childNodes.length);  //13
+//			(2)节点的类型:元素类型,文本类型
+//			alert($('list').childNodes[0].nodeType);
+//			for(var i=0;i<$('list').childNodes.length;i++){
+//				if($('list').childNodes[i].nodeType==1){
+//					$('list').childNodes[i].style.background='red';
+//				}
+//			}
+//		6,children
+//		for(var i=0;i<$('list').children.length;i++){
+//			$('list').children[i].style.background='blue';
+//		}
+//		7,扩展方法
+//		$('list').firstChild.style.background='red';
+		$('list').firstElementChild.style.background='blue';
+//		$('list').lastChild.style.background='red';  //可能会获取到文本类型的节点
+		$('list').lastElementChild.style.background='blue';
+//		$('list').nextSibling.style.background='yellow';
+		$('list').nextElementSibling.style.background='yellow';
+		$('list').nextElementSibling.style.background='yellow';
+		$('list').previousElementSibling.style.background='green';
+//		凡是类似firstChild这种方法,都有兼容性的问题,会获取到文本类型的节点
+//		8,获取元素的父级元素 obj.parentNode(没有兼容性问题)
+//		var aBtn=document.getElementsByTagName('button');
+//		for(var i=0;i<aBtn.length;i++){
+//			aBtn[i].index=i;
+//			aBtn[i].onclick=function(){
+//				$('list').children[this.index].style.display='none';
+//			}
+//		}
+		var aBtn=document.getElementsByTagName('button');
+		for(var i=0;i<aBtn.length;i++){
+			aBtn[i].onclick=function(){
+				this.parentNode.style.display='none';
+			}
+		}
+//		9,获取力元素最近的,有定位的包裹元素.
+		$('inner').offsetParent.style.background='blue';
+	</script>
+</html>

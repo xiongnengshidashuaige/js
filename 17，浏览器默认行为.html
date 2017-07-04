@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				height: 100px;
+			}
+			#menu{
+				height: 300px;
+				width: 150px;
+				background: pink;
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body style="height: 2000px;">
+		<img id="pic" src="img/box_bg.png"/>
+		<div id="menu"></div>
+	</body>
+	<script type="text/javascript" src="js/myQuery.js" ></script>
+	<script type="text/javascript">
+//		1,什么是浏览器的默认行为（图片拖拽时的表现，鼠标右键菜单，等）；
+//		2,阻止默认行为
+//		(1)空格键默认行为
+		document.onkeydown=function(ev){
+			var newEv=ev||event;
+			console.log(newEv.keyCode);
+			return false;   
+		}
+//		(2)右键菜单默认行为
+		document.oncontextmenu=function(ev){
+//			console.log(1);
+			var newEv=ev||event;
+//			console.log(newEv.clientX);
+			$('menu').style.top=newEv.clientY+'px';
+			$('menu').style.left=newEv.clientX+'px';
+			$('menu').style.display='block';
+			return false;
+		}
+		$('menu').onclick=function(ev){
+			var newEv=ev||event;
+			newEv.cancelBubble=true;
+			
+		}
+		document.onclick=function(){
+			$('menu').style.display='none';
+		}
+//		(3)图片拖拽默认行为
+		$('pic').onmousedown=function(){
+//			return false;
+		}
+		
+	</script>
+</html>

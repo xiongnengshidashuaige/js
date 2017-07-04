@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/yangshi.css" />
+		<style type="text/css">
+			ul{
+				overflow: hidden;
+				background: rgba(0,0,0,0.7);
+				height: 300px;
+			}
+			li {
+				height: 5px;
+				width: 60px;
+				float: left;
+				/*background: red;*/
+				margin: 20px 1px;
+			}
+			p{
+				text-align: center;
+				margin: 5px 0;
+				color: white;
+				height: 30px;
+				width: 60px;
+				/*background: black;*/
+				line-height: 30px;
+				/*display: none;*/
+			}
+			li:nth-of-type(1){
+				background: red;
+			}
+			li:nth-of-type(2){
+				background: orange;
+			}
+			li:nth-of-type(3){
+				background:yellow;
+			}
+			li:nth-of-type(4){
+				background: green;
+			}
+			li:nth-of-type(5){
+				background:greenyellow;
+			}
+			li:nth-of-type(6){
+				background:blue;
+			}
+			li:nth-of-type(7){
+				background:purple;
+			}
+			li:nth-of-type(8){
+				background:gray;
+			}
+			li:nth-of-type(9){
+				background: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li>
+				<p>红</p>
+			</li>
+			<li>
+				<p>橙</p>
+			</li>
+			<li>
+				<p>黄</p>
+			</li>
+			<li>
+				<p>绿</p>
+			</li>
+			<li>
+				<p>青</p>
+			</li>
+			<li>
+				<p>蓝</p>
+			</li>
+			<li>
+				<p>紫</p>
+			</li>
+			<li>
+				<p>灰</p>
+			</li>
+			<li>
+				<p>白</p>
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+	var aLi=document.getElementsByTagName('li');
+	var acolor=document.getElementsByTagName('p');
+	var arrcolor=['red','orange','yellow','green','greenyellow','blue',
+	'purple','gray','white'];
+	var len=aLi.length;
+	for(var i=0;i<len;i++){
+		aLi[i].onmouseover=function(){
+		}
+	}
+	</script>
+
+</html>
